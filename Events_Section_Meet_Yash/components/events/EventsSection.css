@@ -1,0 +1,337 @@
+/* SECTION BACKGROUND */
+.ev-section {
+  padding: 4rem clamp(1.5rem, 4vw, 3rem);
+  background: radial-gradient(circle at top, #050816 0%, #020617 45%, #000 100%);
+  color: #f9fafb;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* HEADER */
+.ev-header {
+  max-width: 720px;
+  margin: 0 auto 2.5rem;
+  text-align: center;
+}
+
+.ev-kicker {
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.ev-heading {
+  margin-top: 0.4rem;
+  font-size: clamp(2.2rem, 3.2vw, 3rem);
+  font-weight: 700;
+  background: linear-gradient(90deg, #0ea5e9, #a855f7, #ec4899);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.ev-subtitle {
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  opacity: 0.8;
+}
+
+/* FILTERS */
+.ev-filters {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.ev-filter-btn {
+  border-radius: 999px;
+  border: 1px solid #3f3f46;
+  background: #050505;
+  color: #e5e7eb;
+  padding: 0.4rem 1.3rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease,
+    transform 0.15s ease;
+}
+
+.ev-filter-btn:hover {
+  transform: translateY(-1px);
+  border-color: #60a5fa;
+}
+
+.ev-filter-btn.active {
+  background: linear-gradient(90deg, #0ea5e9, #6366f1);
+  border-color: transparent;
+  color: white;
+}
+
+/* SCROLL WRAPPER */
+.ev-scroll-wrapper {
+  position: relative;
+  margin-top: 1rem;
+}
+
+/* MAIN ROW – 80% visible, 20% overlap */
+.ev-scroll {
+  display: flex;
+  align-items: stretch;
+  overflow-x: auto;
+  overflow-y: visible; /* let hovered card go outside row vertically */
+  padding: 1.8rem 5rem 2.2rem 5rem; /* extra top/bottom to avoid “cut” line */
+  gap: 0;
+  scroll-snap-type: x proximity;
+}
+
+.ev-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+
+.ev-scroll::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 999px;
+}
+
+/* SCROLL ARROWS */
+.ev-scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 999px;
+  border: 1px solid #3f3f46;
+  background: radial-gradient(circle at top left, #111827, #020617);
+  background-color: rgba(15, 23, 42, 0.9);
+  color: #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 5;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+  transition: background 0.2s ease, transform 0.15s ease, border-color 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.ev-scroll-btn-left {
+  left: 1.5rem;
+}
+
+.ev-scroll-btn-right {
+  right: 1.5rem;
+}
+
+.ev-scroll-btn:hover {
+  transform: translateY(-50%) translateY(-1px);
+  border-color: #60a5fa;
+}
+
+/* CARD – NISB-LIKE, 20% OVERLAP */
+.ev-card {
+  position: relative;
+  flex: 0 0 260px;
+  max-width: 260px;
+  border-radius: 16px;
+  background: #17141d;
+  border: 1px solid rgba(15, 23, 42, 0.95);
+  box-shadow: -1rem 0 3rem #000;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  scroll-snap-align: start;
+  margin-left: -52px; /* 20% of 260px → 80% visible, 20% hidden */
+  transition: transform 0.25s ease, box-shadow 0.25s ease,
+    border-color 0.25s ease;
+  cursor: pointer;
+  /* IMPORTANT: no z-index here → stacking order = DOM order
+     so later cards (C) stay above earlier ones (A, B) */
+}
+
+.ev-card:first-child {
+  margin-left: 0;
+}
+
+/* HOVER POP – move slightly to TOP-LEFT, not just up */
+.ev-card:hover {
+  transform: translate(-10px, -20px) scale(1.02);
+  box-shadow: 0 26px 70px rgba(0, 0, 0, 1);
+  border-color: #60a5fa;
+}
+
+/* NISB-LIKE: when a card is hovered, all cards AFTER it shift right */
+.ev-card:hover ~ .ev-card {
+  transform: translateX(40px);
+}
+
+/* TOP META: tag, title, date (keep as before, tiny spacing tweak) */
+.ev-card-header {
+  padding: 1rem 1.1rem 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.ev-tag {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  opacity: 0.7;
+}
+
+.ev-title {
+  font-size: 0.96rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: #f9fafb;
+  transition: color 0.18s ease, background 0.18s ease;
+  cursor: pointer;
+}
+
+/* Title highlight only on title hover (like NISB) */
+.ev-title:hover {
+  background: linear-gradient(90deg, #38bdf8, #a855f7);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.ev-date {
+  margin-top: 0.15rem;
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+/* POSTER – EXACT ASPECT RATIO 1 : 1.417, FULL IMAGE VISIBLE */
+.ev-img-wrap {
+  width: 100%;
+  aspect-ratio: 1 / 1.417; /* width : height = 1 : 1.417 */
+  overflow: hidden;
+  background: #020617; /* safe background if poster doesn’t fill width */
+}
+
+/* full poster, no border cut, black padding if needed */
+.ev-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* show full poster, preserve 1:1.417 */
+  display: block;
+}
+
+/* subtle zoom on hover without cutting borders (contain keeps edges safe) */
+.ev-card:hover .ev-img {
+  transform: scale(1.02);
+}
+
+/* BOTTOM META */
+.ev-card-footer {
+  padding: 0.55rem 1rem 0.9rem;
+}
+
+.ev-venue {
+  margin-top: 0.25rem;
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+/* HOVER OVERLAY + BUTTONS */
+.ev-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(15, 23, 42, 0.95) 0%,
+    rgba(15, 23, 42, 0.8) 25%,
+    transparent 70%
+  );
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 1.1rem;
+  gap: 0.4rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.ev-card:hover .ev-overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* BUTTONS */
+.ev-btn {
+  padding: 0.5rem 1.4rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: transform 0.15s ease, box-shadow 0.18s ease,
+    background 0.2s ease, color 0.2s ease;
+  display: inline-flex;           /* <<< keeps button tight */
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;            /* no awkward wrapping */
+}
+
+.ev-btn.register {
+  background: linear-gradient(90deg, #0ea5e9, #6366f1);
+  color: #f9fafb;
+}
+
+.ev-btn.info {
+  background: #020617;
+  color: #e5e7eb;
+  border: 1px solid #4b5563;
+}
+
+.ev-btn.disabled {
+  background: #27272f;
+  color: #9ca3af;
+  border: 1px solid #4b5563;
+  cursor: default;
+}
+
+.ev-btn:hover:not(.disabled:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.7);
+}
+
+/* MOBILE – NO OVERLAP, KEEP HOVER BEHAVIOUR */
+@media (max-width: 900px) {
+  .ev-scroll-btn {
+    display: none;          /* arrows off on mobile, swipe instead */
+  }
+
+  .ev-scroll {
+    padding-inline: 1.5rem;
+  }
+
+  .ev-card {
+    margin-left: 0;
+    flex-basis: 80vw;
+    max-width: 80vw;
+  }
+}
+
+@media (max-width: 600px) {
+  .ev-heading {
+    font-size: 2rem;
+  }
+
+  .ev-card {
+    flex-basis: 86vw;
+    max-width: 86vw;
+  }
+
+  .ev-img-wrap {
+    aspect-ratio: 1 / 1.417; /* still keep ratio, just scale down */
+  }
+}
