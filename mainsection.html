@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IEEE VIT Timeline - Final Centered</title>
+
+    <style>
+        /* ========================================
+           VARIABLES - Easy Color Customization
+           ======================================== */
+        :root {
+            --bg: #0e0f14;
+            --card-bg: #16181d;
+            --text: #d6d6d6;
+            --muted: #9fa6b2;
+            --accent: #46e1c3; /* IEEE Mint/Teal */
+            --line: #2a2e36;
+        }
+
+        /* ========================================
+           BASE STYLES
+           ======================================== */
+        html, body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* ========================================
+           TIMELINE CONTAINER
+           ======================================== */
+        .timeline {
+            position: relative;
+            max-width: 1100px;
+            margin: 60px auto;
+            padding: 20px 24px 60px;
+            
+            /* DEBUGGING: Uncomment to see container boundaries */
+            /* outline: 2px solid green; */
+        }
+
+        /* ========================================
+           VERTICAL CENTER LINE
+           EXPLANATION: This pseudo-element creates
+           the vertical line running down the middle
+           ======================================== */
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--line);
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+
+        /* ========================================
+           TIMELINE ITEMS (GRID LAYOUT)
+           ======================================== */
+        .timeline-item {
+            display: grid;
+            /* Column structure: [Left Content] [70px Center for Marker] [Right Content] */
+            grid-template-columns: 1fr 70px 1fr;
+            
+            /* REMOVED align-items: center to allow manual alignment */
+            /* This lets us position the heading at marker level */
+            
+            /* SPACING FIX: Reduced from 60px to prevent excessive gaps */
+            margin: 45px 0;
+            
+            /* DEBUGGING: Uncomment below line to visualize grid boundaries */
+            /* outline: 1px dashed red; */
+            
+            /* Animation Init State - Items start invisible and shifted down */
+            opacity: 0;
+            transform: translateY(100px);
+            filter: blur(5px);
+            transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        /* Animation trigger - added by IntersectionObserver */
+        .timeline-item.show {
+            opacity: 1;
+            transform: translateY(0);
+            filter: blur(0);
+        }
+
+        /* ========================================
+           MARKER DOTS (CENTER CIRCLES)
+           ======================================== */
+        .timeline-item .marker {
+            /* POSITIONING: Places marker in the center column */
+            grid-column: 2;
+            
+            /* CRITICAL: Aligns marker at the TOP of its grid cell */
+            /* This creates the effect where heading aligns with dot */
+            justify-self: center;  /* Horizontal centering within grid cell */
+            align-self: start;     /* Align to TOP instead of center */
+            
+            /* Add top margin to position dot above the heading line */
+            margin-top: 20px;
+            
+            /* SIZING: Make sure width/height are equal for perfect circle */
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            
+            /* VISUAL: Background must match body bg to create hollow effect */
+            background: var(--bg);
+            border: 3px solid var(--accent);
+            box-shadow: 0 0 15px rgba(70, 225, 195, 0.4);
+            
+            /* LAYERING: z-index ensures dot appears above the vertical line */
+            z-index: 2;
+            
+            /* Smooth hover transitions */
+            transition: transform 0.3s ease, background 0.3s ease;
+            
+            /* DEBUGGING: Uncomment to see marker boundaries */
+            /* outline: 2px solid yellow; */
+        }
+
+        /* Hover effect - dot fills with accent color and scales up */
+        .timeline-item:hover .marker {
+            background: var(--accent);
+            transform: scale(1.4);
+            box-shadow: 0 0 25px rgba(70, 225, 195, 0.8);
+        }
+
+        /* ========================================
+           CONTENT CARDS (TEXT CONTAINERS)
+           ======================================== */
+        .timeline-item .content {
+            position: relative;
+            
+            /* PADDING FIX: Balanced padding for better visual weight */
+            padding: 28px 24px;
+            
+            /* VISUAL: Sharp corners for modern look */
+            border-radius: 2px;
+            background: transparent;
+            
+            /* CRITICAL: Prevents border animation from causing scroll */
+            overflow: hidden; 
+            
+            /* Smooth hover transitions */
+            transition: background 0.3s ease, box-shadow 0.3s ease;
+            
+            /* DEBUGGING: Uncomment to see content box boundaries */
+            /* outline: 1px solid blue; */
+        }
+
+        /* Hover Background Change - card gets visible background */
+        .timeline-item:hover .content {
+            background: var(--card-bg);
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
+        }
+
+        /* ========================================
+           CONTENT ALIGNMENT (LEFT/RIGHT)
+           EXPLANATION: Controls which side of the
+           timeline each card appears on
+           ======================================== */
+        .timeline-item.left .content { 
+            grid-column: 1;  /* Left side content */
+            /* Align content to match marker position */
+            align-self: start;
+        }
+        
+        .timeline-item.right .content { 
+            grid-column: 3;  /* Right side content */
+            /* Align content to match marker position */
+            align-self: start;
+        }
+
+        /* ========================================
+           TYPOGRAPHY - HEADINGS
+           ======================================== */
+        .content h3 {
+            color: var(--accent);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 1.25rem;
+            
+            /* CRITICAL: Zero margins ensure heading starts at the very top */
+            /* This makes the heading align with the marker dot */
+            margin-top: 0;
+            margin-bottom: 12px;
+            
+            /* VISUAL: Subtle glow effect */
+            text-shadow: 0 0 10px rgba(70, 225, 195, 0.2);
+            
+            /* Adjust line height for perfect alignment */
+            line-height: 1.2;
+        }
+
+        /* ========================================
+           TYPOGRAPHY - PARAGRAPHS
+           ======================================== */
+        .content p {
+            color: var(--muted);
+            line-height: 1.7;
+            
+            /* CRITICAL FIX #4: Zero bottom margin prevents extra space below paragraph */
+            margin: 0;
+            font-size: 0.95rem;
+            
+            /* TEXT FORMATTING: Justified with left-aligned last line */
+            text-align: justify;
+            text-align-last: left;
+            hyphens: auto;
+            
+            /* BUG FIX: Added proper unit to transition */
+            transition: color 0.3s;
+        }
+
+        /* Hover effect - text becomes brighter */
+        .timeline-item:hover .content p {
+            color: #fff;
+        }
+
+        /* ========================================
+           SNAKE BORDER ANIMATION
+           EXPLANATION: Creates animated border that
+           travels around card edges on hover
+           ======================================== */
+        .content span { 
+            position: absolute; 
+            display: block; 
+        }
+
+        /* Top Line - moves left to right */
+        .content span:nth-child(1) {
+            top: 0; 
+            left: -100%; 
+            width: 100%; 
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent));
+            animation: btn-anim1 2s linear infinite;
+            animation-delay: 0.5s;  /* Starts after 0.5s */
+            animation-play-state: paused;  /* Only plays on hover */
+        }
+        
+        /* Right Line - moves top to bottom */
+        .content span:nth-child(2) {
+            top: -100%; 
+            right: 0; 
+            width: 2px; 
+            height: 100%;
+            background: linear-gradient(180deg, transparent, var(--accent));
+            animation: btn-anim2 2s linear infinite;
+            animation-delay: 1.0s;  /* Starts after 1.0s */
+            animation-play-state: paused;
+        }
+        
+        /* Bottom Line - moves right to left */
+        .content span:nth-child(3) {
+            bottom: 0; 
+            right: -100%; 
+            width: 100%; 
+            height: 2px;
+            background: linear-gradient(270deg, transparent, var(--accent));
+            animation: btn-anim3 2s linear infinite;
+            animation-delay: 1.5s;  /* Starts after 1.5s */
+            animation-play-state: paused;
+        }
+        
+        /* Left Line - moves bottom to top */
+        .content span:nth-child(4) {
+            bottom: -100%; 
+            left: 0; 
+            width: 2px; 
+            height: 100%;
+            background: linear-gradient(360deg, transparent, var(--accent));
+            animation: btn-anim4 2s linear infinite;
+            animation-delay: 2.0s;  /* Starts after 2.0s */
+            animation-play-state: paused;
+        }
+
+        /* Trigger animations on hover */
+        .timeline-item:hover .content span { 
+            animation-play-state: running; 
+        }
+
+        /* Border Animation Keyframes */
+        @keyframes btn-anim1 { 
+            0% { left: -100%; } 
+            50%, 100% { left: 100%; } 
+        }
+        
+        @keyframes btn-anim2 { 
+            0% { top: -100%; } 
+            50%, 100% { top: 100%; } 
+        }
+        
+        @keyframes btn-anim3 { 
+            0% { right: -100%; } 
+            50%, 100% { right: 100%; } 
+        }
+        
+        @keyframes btn-anim4 { 
+            0% { bottom: -100%; } 
+            50%, 100% { bottom: 100%; } 
+        }
+
+        /* ========================================
+           MOBILE RESPONSIVENESS
+           EXPLANATION: Switches to single-column
+           layout with left-aligned markers
+           ======================================== */
+        @media (max-width: 768px) {
+            /* Move vertical line to left side */
+            .timeline::before { 
+                left: 20px; 
+            }
+            
+            /* Change grid to 2 columns: [Marker] [Content] */
+            .timeline-item { 
+                grid-template-columns: 40px 1fr; 
+                margin: 40px 0;
+                align-items: center;  /* Keep centered on mobile */
+            }
+            
+            /* Marker in first column, smaller size */
+            .timeline-item .marker { 
+                grid-column: 1; 
+                width: 12px; 
+                height: 12px;
+                justify-self: center; 
+            }
+
+            /* All content goes in second column */
+            .timeline-item.left .content,
+            .timeline-item.right .content {
+                grid-column: 2;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="timeline">
+        
+        <!-- TIMELINE ITEM 1: About IEEE (Right Side) -->
+        <div class="timeline-item right">
+            <div class="marker"></div>
+            <div class="content">
+                <!-- Border animation spans -->
+                <span></span><span></span><span></span><span></span>
+                <h3>About IEEE</h3>
+                <p>IEEE, the Institute of Electrical and Electronics Engineers, is the world's largest technical professional organization, focused on advancing technology for humanity. With over 417,000 members in 160 countries, IEEE drives global innovation through highly cited publications, conferences, technology standards, and professional and educational activities.</p>
+            </div>
+        </div>
+
+        <!-- TIMELINE ITEM 2: Mission (Left Side) -->
+        <div class="timeline-item left">
+            <div class="marker"></div>
+            <div class="content">
+                <span></span><span></span><span></span><span></span>
+                <h3>Mission</h3>
+                <p>IEEE's core purpose is to foster technological innovation and excellence for the benefit of humanity. We provide a global platform for creating a better tomorrow by empowering engineers, scientists, and allied professionals to contribute to the global community through technology and collaboration.</p>
+            </div>
+        </div>
+
+        <!-- TIMELINE ITEM 3: Vision (Right Side) -->
+        <div class="timeline-item right">
+            <div class="marker"></div>
+            <div class="content">
+                <span></span><span></span><span></span><span></span>
+                <h3>Vision</h3>
+                <p>IEEE will be essential to the global technical community and recognized worldwide for its significant contributions to improving global conditions. We envision a world where technology and the efforts of technical professionals are leveraged to solve the world's most challenging problems.</p>
+            </div>
+        </div>
+
+        <!-- TIMELINE ITEM 4: About IEEE-VIT (Left Side) -->
+        <div class="timeline-item left">
+            <div class="marker"></div>
+            <div class="content">
+                <span></span><span></span><span></span><span></span>
+                <h3>About IEEE-VIT</h3>
+                <p>Formed in 2009, the IEEE-Vidyalankar Institute of Technology Student Branch has been a hub of activity. We bagged the Best Student Chapter Award in IEEE Bombay Section (2014–15) and were nominated for the IEEE India Council Outstanding Student Chapter Award.</p>
+            </div>
+        </div>
+
+        <!-- TIMELINE ITEM 5: Our Achievements (Right Side) -->
+        <div class="timeline-item right">
+            <div class="marker"></div>
+            <div class="content">
+                <span></span><span></span><span></span><span></span>
+                <h3>Our Achievements</h3>
+                <p>The IEEE Bombay Section Platinum Affiliate Award celebrates our outstanding performance, exceptional leadership, and strong dedication to the mission of IEEE. This accolade recognizes the tireless efforts of our student members in organizing technical workshops, seminars, and industrial visits.</p>
+            </div>
+        </div>
+
+    </section>
+
+    <script>
+        /* ========================================
+           INTERSECTION OBSERVER
+           EXPLANATION: Triggers fade-in animation
+           when items scroll into view
+           ======================================== */
+        
+        // Configuration for when to trigger animation
+        const observerOptions = {
+            root: null,              // Use viewport as root
+            rootMargin: '0px',       // No margin offset
+            threshold: 0.15          // Trigger when 15% visible
+        };
+
+        // Create observer instance
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Add 'show' class when element enters viewport
+                    entry.target.classList.add('show');
+                } else {
+                    // Remove 'show' class when element leaves viewport
+                    // This allows re-animation on scroll back
+                    entry.target.classList.remove('show');
+                }
+            });
+        }, observerOptions);
+
+        // Select all timeline items and observe them
+        const items = document.querySelectorAll('.timeline-item');
+        items.forEach(item => {
+            observer.observe(item);
+        });
+
+        /* ========================================
+           DEBUGGING HELPER
+           EXPLANATION: Uncomment to log when items
+           become visible (useful for troubleshooting)
+           ======================================== */
+        /*
+        items.forEach((item, index) => {
+            const heading = item.querySelector('h3').textContent;
+            observer.observe(item);
+            console.log(`Observing item ${index + 1}: ${heading}`);
+        });
+        */
+    </script>
+
+</body>
+</html>
