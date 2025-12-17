@@ -1,4 +1,3 @@
-/* ==================== IEEE BRAND COLORS (Following Official Guidelines) ==================== */
 :root {
     /* Primary IEEE Colors */
     --ieee-blue: #00629B;
@@ -7,13 +6,13 @@
     --ieee-white: #FFFFFF;
     --ieee-gray: #75787B;
     --ieee-light-gray: #F5F5F5;
-    
+
     /* Accent Colors */
     --accent-orange: #FFA300;
     --accent-teal: #009CA6;
     --accent-cyan: #00B5E2;
     --accent-green: #00843D;
-    
+
     /* Background Colors */
     --dark-bg: #0a0a0a;
     --card-bg: #1a1a1a;
@@ -35,190 +34,6 @@ body {
     background: var(--dark-bg);
     color: var(--ieee-white);
 }
-
-/* ==================== NAVBAR STYLES ==================== */
-
-/* UPDATED: Logo now significantly larger than nav buttons for prominence */
-.navbar-logo {
-    height: 60px;              /* Increased for better visibility */
-    max-width: 350px;          /* Allows wider logos */
-    width: auto;               /* Maintains aspect ratio */
-    object-fit: contain;       /* Prevents distortion */
-    display: block;
-    transition: transform 0.3s ease;
-    
-    /* Enhanced visibility */
-    filter: brightness(1.2) contrast(1.15);
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: crisp-edges;
-    
-    /* Ensures proper loading */
-    min-height: 60px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    
-    /* Remove background for transparent logos */
-    background-color: transparent;
-    padding: 6px 10px;
-    border-radius: 6px;
-}
-
-/* Hover effect - Slightly more pronounced for larger logo */
-.navbar-logo:hover {
-     transform: scale(1.05);
-    filter: brightness(1.2) contrast(1.2);
-}
-
-/* Error state styling */
-.navbar-logo[src=""], 
-.navbar-logo:not([src]) {
-    background: rgba(0, 98, 155, 0.2);
-    border: 2px dashed var(--ieee-blue);
-    border-radius: 4px;
-}
-
-/* Navbar container - Following IEEE Brand Guidelines */
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 75px;              /* Increased from 80px to accommodate larger logo */
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 40px;
-    background: rgba(0, 0, 0, 0.82);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    color: var(--ieee-white);
-    z-index: 1000;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-}
-
-/* Logo block - Now contains only the image */
-.navbar-left {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: max-content;
-    margin-right: 40px;        /* Slightly increased spacing */
-    flex-shrink: 0;
-}
-
-/* Right menu layout */
-.navbar-right ul {
-    list-style: none;
-    display: flex;
-    gap: 28px;
-    align-items: center;
-}
-
-.navbar-right li {
-    position: relative;
-    white-space: nowrap;
-}
-
-/* Nav link style - Glassmorphic design */
-.nav-link {
-    position: relative;
-    display: inline-block;
-    padding: 8px 16px;
-    font-size: 15px;
-    font-weight: 500;
-    color: #e8e8ff;
-    text-decoration: none;
-    letter-spacing: 0.3px;
-    border-radius: 999px;
-    background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
-    box-shadow: 0 0 0 rgba(0,0,0,0);
-    overflow: hidden;
-    transition: color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
-    white-space: nowrap;
-}
-
-/* Underline effect */
-.nav-link::after {
-    content: "";
-    position: absolute;
-    left: 16px;
-    right: 16px;
-    bottom: 4px;
-    height: 2px;
-    border-radius: 999px;
-    background: linear-gradient(90deg, rgba(255,255,255,0.0), rgba(255,255,255,0.5), rgba(255,255,255,0.0));
-    opacity: 0.2;
-    transition: opacity 0.25s ease, transform 0.25s ease;
-}
-
-/* Shiny diagonal stripe effect */
-.nav-link::before {
-    content: "";
-    position: absolute;
-    top: -60%;
-    left: -120%;
-    width: 80%;
-    height: 220%;
-    background: linear-gradient(120deg, rgba(255,255,255,0.0) 0%, rgba(255,255,255,0.75) 45%, rgba(255,255,255,0.0) 100%);
-    opacity: 0;
-    transform: skewX(-20deg);
-    transition: left 0.45s ease, opacity 0.45s ease;
-}
-
-/* Hover/focus state with IEEE blue accent */
-.nav-link:hover,
-.nav-link:focus {
-    color: var(--ieee-white);
-    transform: translateY(-6px) scale(1.04);
-    box-shadow: 0 18px 48px rgba(20,28,40,0.36), inset 0 1px 0 rgba(255,255,255,0.08);
-    background-image: linear-gradient(180deg, rgba(255,255,255,0.16), rgba(255,255,255,0.03)), linear-gradient(120deg, rgba(255,255,255,0.02), rgba(255,255,255,0));
-    transition: transform 0.22s cubic-bezier(.2,.9,.2,1), box-shadow 0.28s ease, background-image 0.28s ease;
-}
-
-.nav-link:hover::after,
-.nav-link:focus::after {
-    opacity: 1;
-    transform: scaleX(1);
-    background: linear-gradient(90deg, rgba(0,98,155,0.95), rgba(0,181,226,0.75));
-    box-shadow: 0 6px 18px rgba(0,98,155,0.4);
-}
-
-.nav-link:hover::before,
-.nav-link:focus::before {
-    left: 160%;
-    opacity: 1;
-    transition: left 0.42s cubic-bezier(.12,.9,.24,1), opacity 0.38s ease;
-    background: linear-gradient(120deg, rgba(255,255,255,0.0) 0%, rgba(255,255,255,0.95) 40%, rgba(255,255,255,0.0) 76%);
-}
-
-.nav-link:focus {
-    outline: 2px solid rgba(0,98,155,0.3);
-    outline-offset: 3px;
-}
-
-.nav-link.active {
-    color: var(--ieee-white);
-    background: linear-gradient(135deg, rgba(0,98,155,0.2), rgba(0,181,226,0.1));
-}
-
-.nav-link.active::after {
-    opacity: 1;
-    background: var(--ieee-blue);
-}
-
-/* Main Content Spacing - Updated for taller navbar */
-.main-content {
-    margin-top: 100px;
-    min-height: calc(100vh - 100px);
-}
-
-/* Smooth scrolling for the page */
-html {
-    scroll-behavior: smooth;
-}
-
-/* ==================== FOOTER STYLES ==================== */
 
 .ieee-footer {
     margin-top: 0;
@@ -376,14 +191,16 @@ html {
 .brand-col {
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Keeps the column content on the left side of the footer */
+    align-items: flex-start;
+    /* Keeps the column content on the left side of the footer */
 }
 
 /* Brand Column - IEEE Master Brand representation */
 .brand-header {
     display: flex;
     justify-content: center;
-    width: 280px;            /* Matches the width of the logo/button for centering */
+    width: 280px;
+    /* Matches the width of the logo/button for centering */
     margin-bottom: 0 px;
 }
 
@@ -405,12 +222,15 @@ html {
 }
 
 .brand-description {
-    width: 280px;            
-    text-align: center;      
-    font-size: 16px;         /* CHANGED: Increased from 13px */
-    font-weight: 700;        /* CHANGED: Increased from normal/400 to bold */
+    width: 280px;
+    text-align: center;
+    font-size: 16px;
+    /* CHANGED: Increased from 13px */
+    font-weight: 700;
+    /* CHANGED: Increased from normal/400 to bold */
     color: var(--ieee-white);
-    margin: -10px 0 25px 0;   /* CHANGED: Top margin from -90px to 10px */
+    margin: -10px 0 25px 0;
+    /* CHANGED: Top margin from -90px to 10px */
     line-height: 1.2;
     font-style: normal;
 }
@@ -560,8 +380,13 @@ html {
 }
 
 @keyframes shimmer {
-    0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-    100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+    0% {
+        transform: translateX(-100%) translateY(-100%) rotate(45deg);
+    }
+
+    100% {
+        transform: translateX(100%) translateY(100%) rotate(45deg);
+    }
 }
 
 .map-container:hover {
@@ -572,9 +397,10 @@ html {
 /* UPDATED: Improved map iframe styling for better orientation/fit */
 .map-container iframe {
     width: 100%;
-    height: 250px; /* Increased from 180px for better vertical fit */
+    height: 250px;
+    /* Increased from 180px for better vertical fit */
     border: none;
-    filter: saturate(1.1) contrast(1.15) brightness(0.98); 
+    filter: saturate(1.1) contrast(1.15) brightness(0.98);
     transition: filter 0.4s ease;
     display: block;
 }
@@ -604,14 +430,18 @@ html {
     align-items: center;
     justify-content: center;
     gap: 8px;
-    padding: 13px 24px; /* Updated padding for consistency with other CTA */
-    margin-top: 0; /* Removed margin-top, now handled by .cta-button-row */
+    padding: 13px 24px;
+    /* Updated padding for consistency with other CTA */
+    margin-top: 0;
+    /* Removed margin-top, now handled by .cta-button-row */
     border-radius: 10px;
     text-decoration: none;
-    font-size: 14px; /* Updated font size for consistency */
+    font-size: 14px;
+    /* Updated font size for consistency */
     font-weight: 700;
     transition: all 0.3s ease;
-    width: 100%; /* Will be overridden by flex: 1 in the new container */
+    width: 100%;
+    /* Will be overridden by flex: 1 in the new container */
     background: linear-gradient(135deg, var(--ieee-blue), #004070);
     color: var(--ieee-white);
 }
@@ -729,16 +559,19 @@ html {
 
 /* Make both buttons share space equally within the row */
 .cta-button-row .cta-btn {
-    flex: 0 1 auto; /* Makes both buttons grow to fill the row */
+    flex: 0 1 auto;
+    /* Makes both buttons grow to fill the row */
     max-width: 280;
-    min-width: 240; /* Allow flex items to shrink */
+    min-width: 240;
+    /* Allow flex items to shrink */
     padding: 13px 24px;
 }
 
 .cta-button-row .join-ieee-btn {
     flex: 0 1 auto;
     min-width: 220px;
-    max-width: 280px;        /* Matches the width of the logo and tagline */
+    max-width: 280px;
+    /* Matches the width of the logo and tagline */
     padding: 13px 24px;
 }
 
@@ -761,16 +594,20 @@ html {
 }
 
 /* Specific button styles */
-.join-ieee-btn, .map-directions-link {
-    flex: 0 1 220px;      /* Set a fixed base width matching the logo */
-    max-width: 250px;     /* Prevents it from stretching too far */
+.join-ieee-btn,
+.map-directions-link {
+    flex: 0 1 220px;
+    /* Set a fixed base width matching the logo */
+    max-width: 250px;
+    /* Prevents it from stretching too far */
     padding: 13px 20px;
     background: linear-gradient(135deg, var(--ieee-blue), #004070);
     color: var(--ieee-white);
     box-shadow: 0 4px 15px rgba(0, 98, 155, 0.4);
 }
 
-.join-ieee-btn:hover, .map-directions-link:hover {
+.join-ieee-btn:hover,
+.map-directions-link:hover {
     transform: translateY(-3px) scale(1.02);
     box-shadow: 0 8px 25px rgba(0, 98, 155, 0.6);
     background: linear-gradient(135deg, #004070, var(--ieee-blue));
@@ -882,30 +719,30 @@ html {
         height: 90px;
         padding: 0 30px;
     }
-    
+
     .navbar-logo {
         height: 65px;
         max-width: 240px;
     }
-    
+
     .navbar-right ul {
         gap: 20px;
     }
-    
+
     .nav-link {
         padding: 8px 14px;
         font-size: 14px;
     }
-    
+
     .main-content {
         margin-top: 90px;
     }
-    
+
     .footer-container-new {
         grid-template-columns: 1fr 1fr;
         gap: 40px;
     }
-    
+
     .map-col {
         grid-column: 1 / -1;
     }
@@ -913,17 +750,17 @@ html {
     .contact-col {
         align-items: flex-start;
     }
-    
+
     .footer-bottom-container {
         flex-direction: column;
         text-align: center;
         gap: 10px;
     }
-    
+
     .single-sentence-footer {
         order: 3;
     }
-    
+
     .copyright-section {
         order: 1;
     }
@@ -943,10 +780,10 @@ html {
         margin-bottom: 14px;
         margin-right: 0;
     }
-    
+
     .navbar-logo {
         height: 85px;
-        filter: drop-shadow(0 0 6px rgba(255,255,255,0.85));
+        filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.85));
     }
 
     .navbar-right ul {
@@ -960,51 +797,51 @@ html {
         padding: 6px 12px;
         font-size: 13px;
     }
-    
+
     .main-content {
         margin-top: 140px;
     }
-    
+
     .newsletter-section {
         padding: 40px 20px;
     }
-    
+
     .newsletter-container {
         flex-direction: column;
         text-align: center;
         gap: 30px;
     }
-    
+
     .newsletter-content {
         text-align: center;
     }
-    
+
     .newsletter-title {
         font-size: 28px;
     }
-    
+
     .newsletter-form {
         flex-direction: column;
         max-width: 100%;
         min-width: auto;
         width: 100%;
     }
-    
+
     .newsletter-input,
     .newsletter-btn {
         width: 100%;
     }
-    
+
     .privacy-text {
         position: static;
         margin-top: 15px;
         text-align: center;
     }
-    
+
     .footer-main {
         padding: 40px 20px 30px;
     }
-    
+
     .footer-container-new {
         grid-template-columns: 1fr;
         gap: 35px;
@@ -1015,16 +852,16 @@ html {
         grid-column: auto;
         align-items: center;
     }
-    
+
     .footer-col {
         align-items: center;
     }
-    
+
     .brand-header {
         flex-direction: column;
         align-items: center;
     }
-    
+
     .brand-description {
         text-align: center;
     }
@@ -1054,23 +891,23 @@ html {
         margin-left: auto;
         margin-right: auto;
     }
-    
+
     .footer-bottom-container {
         flex-direction: column;
         text-align: center;
     }
-    
+
     .social-icons {
         justify-content: center;
     }
-    
+
     .brand-col .join-ieee-btn,
     .contact-query-form {
         max-width: 90%;
         margin-left: auto;
         margin-right: auto;
     }
-    
+
     /* Ensure the button row is centered in mobile view */
     .cta-button-row {
         max-width: 90%;
@@ -1085,12 +922,12 @@ html {
         padding: 10px 16px;
         min-height: 105px;
     }
-    
+
     .navbar-logo {
         height: 55px;
         max-width: 200px;
     }
-    
+
     .navbar-right ul {
         gap: 8px;
     }
@@ -1099,29 +936,29 @@ html {
         padding: 6px 10px;
         font-size: 12px;
     }
-    
+
     .newsletter-title {
         font-size: 24px;
     }
-    
+
     .newsletter-btn {
         padding: 14px 28px;
     }
-    
+
     .footer-main {
         padding: 35px 15px 20px;
     }
-    
+
     .social-icon {
         width: 36px;
         height: 36px;
         font-size: 15px;
     }
-    
+
     .footer-bottom {
         padding: 20px 15px;
     }
-    
+
     /* Force buttons to stack on very small screens */
     .cta-button-row {
         flex-direction: column;

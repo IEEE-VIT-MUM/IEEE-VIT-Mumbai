@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import "./EventsSection.css";
+import "../EventsSection.css";
 
 const eventsData = [
   {

@@ -1,7 +1,7 @@
 /* SECTION BACKGROUND */
 .ev-section {
   padding: 4rem clamp(1.5rem, 4vw, 3rem);
-  background: radial-gradient(circle at top, #050816 0%, #020617 45%, #000 100%);
+  background: #0e0f14;
   color: #f9fafb;
   width: 100%;
   overflow-x: hidden;
