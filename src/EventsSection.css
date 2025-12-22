@@ -1,8 +1,8 @@
 /* SECTION BACKGROUND */
 .ev-section {
   padding: 4rem clamp(1.5rem, 4vw, 3rem);
-  background: #0e0f14;
-  color: #f9fafb;
+  background: #000000;
+  color: #d6d6d6;
   width: 100%;
   overflow-x: hidden;
 }
@@ -25,7 +25,7 @@
   margin-top: 0.4rem;
   font-size: clamp(2.2rem, 3.2vw, 3rem);
   font-weight: 700;
-  background: linear-gradient(90deg, #0ea5e9, #a855f7, #ec4899);
+  background: #00B5E2;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -61,11 +61,11 @@
 
 .ev-filter-btn:hover {
   transform: translateY(-1px);
-  border-color: #60a5fa;
+  border-color: #009CA6;
 }
 
 .ev-filter-btn.active {
-  background: linear-gradient(90deg, #0ea5e9, #6366f1);
+  background: #00B5E2;
   border-color: transparent;
   color: white;
 }
@@ -128,7 +128,7 @@
 
 .ev-scroll-btn:hover {
   transform: translateY(-50%) translateY(-1px);
-  border-color: #60a5fa;
+  border-color: #009CA6;
 }
 
 /* CARD – NISB-LIKE, 20% OVERLAP */
@@ -160,7 +160,7 @@
 .ev-card:hover {
   transform: translate(-10px, -20px) scale(1.02);
   box-shadow: 0 26px 70px rgba(0, 0, 0, 1);
-  border-color: #60a5fa;
+  border-color: #009CA6;
 }
 
 /* NISB-LIKE: when a card is hovered, all cards AFTER it shift right */
@@ -194,7 +194,7 @@
 
 /* Title highlight only on title hover (like NISB) */
 .ev-title:hover {
-  background: linear-gradient(90deg, #38bdf8, #a855f7);
+  background: linear-gradient(90deg, #00629B, #009CA6);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -282,7 +282,7 @@
 }
 
 .ev-btn.register {
-  background: linear-gradient(90deg, #0ea5e9, #6366f1);
+  background: linear-gradient(90deg, #00629B, #009CA6);
   color: #f9fafb;
 }
 

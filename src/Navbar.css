@@ -12,7 +12,7 @@
     justify-content: space-between;
     padding: 0 40px;
     /* Deep black with slight transparency */
-    background: rgba(10, 10, 10, 0.95); 
+    background: #000000; 
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     z-index: 10000; 
@@ -41,7 +41,7 @@
 /* "IEEE Student Branch" */
 .navbar-left p {
     font-size: 0.9rem;
-    color: #46e1c3; /* Theme Mint/Teal */
+    color: #00B5E2; /* Theme Mint/Teal */
     margin: 0;
     font-weight: 400;
 }
@@ -73,18 +73,18 @@
 
 /* HOVER STATE */
 .nav-link:hover {
-    background: #46e1c3; /* Theme color */
+    background: #00B5E2 ; /* Theme color */
     color: #0e0f14;       /* Dark text for contrast */
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(70, 225, 195, 0.3);
-    border-color: #46e1c3;
+    border-color: #00B5E2 ;
 }
 
 /* ACTIVE STATE */
 .nav-link.active {
-    background: #46e1c3;
+    background: #00B5E2 ;
     color: #0e0f14;
-    border-color: #46e1c3;
+    border-color: #00B5E2 ;
 }
 
 /* ========================================

@@ -2,11 +2,11 @@
    ABOUT IEEE SECTION CONTAINER
    ======================================== */
 .about-ieee {
-    background: #0e0f14;
+    background: #000000;
     color: #d6d6d6;
     width: 100%;
     min-height: 100vh;
-    padding-top: 100px !important; 
+    padding-top: 100px !important;
     padding-bottom: 80px;
     display: flex;
     flex-direction: column;
@@ -20,7 +20,7 @@
     position: relative;
     width: 100%;
     /* Increased max-width to use more of the screen */
-    max-width: 1400px; 
+    max-width: 1400px;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -33,7 +33,7 @@
     top: 0;
     bottom: 0;
     width: 2px;
-    background: #2a2e36;
+    background: rgba(0, 98, 155, 0.4);
     transform: translateX(-50%);
     z-index: 1;
 }
@@ -44,12 +44,12 @@
 .timeline-item {
     display: grid;
     /* [Left Content] [Center Gap for Marker] [Right Content] */
-    grid-template-columns: 1fr 120px 1fr; 
+    grid-template-columns: 1fr 120px 1fr;
     margin-bottom: 80px;
     width: 100%;
     position: relative;
     z-index: 2;
-    
+
     /* Animation entry state */
     opacity: 0;
     transform: translateY(30px);
@@ -66,13 +66,13 @@
     grid-column: 2;
     justify-self: center;
     align-self: start;
-    margin-top: 25px; 
+    margin-top: 25px;
     width: 18px;
     height: 18px;
     border-radius: 50%;
-    background: #0e0f14;
-    border: 3px solid #46e1c3;
-    box-shadow: 0 0 15px rgba(70, 225, 195, 0.4);
+    background: #000000;
+    border: 3px solid #009CA6;
+    box-shadow: 0 0 15px rgba(0, 156, 166, 0.4);
     z-index: 3;
 }
 
@@ -82,10 +82,10 @@
 .timeline-item .content {
     position: relative;
     padding: 30px;
-    background: #16181d;
+    background: #111827;
     border-radius: 4px;
     /* CRITICAL: This keeps the snake lines inside the box */
-    overflow: hidden; 
+    overflow: hidden;
     transition: box-shadow 0.3s ease;
 }
 
@@ -94,8 +94,15 @@
 }
 
 /* Positioning cards */
-.timeline-item.left .content { grid-column: 1; text-align: right; }
-.timeline-item.right .content { grid-column: 3; text-align: left; }
+.timeline-item.left .content {
+    grid-column: 1;
+    text-align: right;
+}
+
+.timeline-item.right .content {
+    grid-column: 3;
+    text-align: left;
+}
 
 /* Fixed Snake Spans */
 .content span {
@@ -105,47 +112,148 @@
 
 /* Top line */
 .content span:nth-child(1) {
-    top: 0; left: -100%; width: 100%; height: 2px;
-    background: linear-gradient(90deg, transparent, #46e1c3);
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #009CA6);
 }
+
 /* Right line */
 .content span:nth-child(2) {
-    top: -100%; right: 0; width: 2px; height: 100%;
-    background: linear-gradient(180deg, transparent, #46e1c3);
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #009CA6);
 }
+
 /* Bottom line */
 .content span:nth-child(3) {
-    bottom: 0; right: -100%; width: 100%; height: 2px;
-    background: linear-gradient(270deg, transparent, #46e1c3);
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, #009CA6);
 }
+
 /* Left line */
 .content span:nth-child(4) {
-    bottom: -100%; left: 0; width: 2px; height: 100%;
-    background: linear-gradient(360deg, transparent, #46e1c3);
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, #009CA6);
 }
 
 /* Animation trigger on hover */
-.timeline-item:hover .content span:nth-child(1) { animation: snake1 2s linear infinite; }
-.timeline-item:hover .content span:nth-child(2) { animation: snake2 2s linear infinite; animation-delay: 0.5s; }
-.timeline-item:hover .content span:nth-child(3) { animation: snake3 2s linear infinite; animation-delay: 1s; }
-.timeline-item:hover .content span:nth-child(4) { animation: snake4 2s linear infinite; animation-delay: 1.5s; }
+.timeline-item:hover .content span:nth-child(1) {
+    animation: snake1 2s linear infinite;
+}
 
-@keyframes snake1 { 0% { left: -100%; } 50%,100% { left: 100%; } }
-@keyframes snake2 { 0% { top: -100%; } 50%,100% { top: 100%; } }
-@keyframes snake3 { 0% { right: -100%; } 50%,100% { right: 100%; } }
-@keyframes snake4 { 0% { bottom: -100%; } 50%,100% { bottom: 100%; } }
+.timeline-item:hover .content span:nth-child(2) {
+    animation: snake2 2s linear infinite;
+    animation-delay: 0.5s;
+}
+
+.timeline-item:hover .content span:nth-child(3) {
+    animation: snake3 2s linear infinite;
+    animation-delay: 1s;
+}
+
+.timeline-item:hover .content span:nth-child(4) {
+    animation: snake4 2s linear infinite;
+    animation-delay: 1.5s;
+}
+
+@keyframes snake1 {
+    0% {
+        left: -100%;
+    }
+
+    50%,
+    100% {
+        left: 100%;
+    }
+}
+
+@keyframes snake2 {
+    0% {
+        top: -100%;
+    }
+
+    50%,
+    100% {
+        top: 100%;
+    }
+}
+
+@keyframes snake3 {
+    0% {
+        right: -100%;
+    }
+
+    50%,
+    100% {
+        right: 100%;
+    }
+}
+
+@keyframes snake4 {
+    0% {
+        bottom: -100%;
+    }
+
+    50%,
+    100% {
+        bottom: 100%;
+    }
+}
 
 /* Typography */
-.content h3 { color: #46e1c3; margin-bottom: 10px; font-size: 1.3rem; letter-spacing: 1px;padding-right: 15px; text-transform: uppercase; text-align: justify; text-justify: inter-word; hyphens: auto;}
-.content p { color: #9fa6b2; line-height: 1.8; font-size: 0.95rem; text-align: justify; text-justify: inter-word; hyphens: auto;}
+.content h3 {
+    color: #00B5E2;
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+    padding-right: 15px;
+    text-transform: uppercase;
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
+}
+
+.content p {
+    color: #9fa6b2;
+    line-height: 1.8;
+    font-size: 0.95rem;
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
+}
 
 /* ========================================
    MOBILE FIXES
    ======================================== */
 @media (max-width: 768px) {
-    .timeline::before { left: 30px; transform: none; }
-    .timeline-item { grid-template-columns: 60px 1fr; margin-bottom: 40px; }
-    .timeline-item .marker { grid-column: 1; margin-top: 20px; }
-    .timeline-item.left .content, 
-    .timeline-item.right .content { grid-column: 2; text-align: left; }
+    .timeline::before {
+        left: 30px;
+        transform: none;
+    }
+
+    .timeline-item {
+        grid-template-columns: 60px 1fr;
+        margin-bottom: 40px;
+    }
+
+    .timeline-item .marker {
+        grid-column: 1;
+        margin-top: 20px;
+    }
+
+    .timeline-item.left .content,
+    .timeline-item.right .content {
+        grid-column: 2;
+        text-align: left;
+    }
 }

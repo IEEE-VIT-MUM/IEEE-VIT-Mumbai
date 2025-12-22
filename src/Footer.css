@@ -1,26 +1,26 @@
 :root {
-    /* Primary IEEE Colors */
-    --ieee-blue: #00629B;
-    --ieee-dark-blue: #002855;
+    /* ================= IEEE BRAND COLORS ================= */
+    --ieee-blue: #00629B;          /* PMS 3015 C */
+    --ieee-dark-blue: #002855;     /* Dark brand blue */
     --ieee-black: #000000;
     --ieee-white: #FFFFFF;
     --ieee-gray: #75787B;
     --ieee-light-gray: #F5F5F5;
 
-    /* Accent Colors */
-    --accent-orange: #FFA300;
-    --accent-teal: #009CA6;
-    --accent-cyan: #00B5E2;
-    --accent-green: #00843D;
+    /* Expanded IEEE Palette (Approved) */
+    --accent-orange: #00B5E2;      /* 137 C */
+    --accent-orange-dark: #00629B; /* 158 C */
+    --accent-teal: #009CA6;        /* 320 C */
+    --accent-cyan: #00B5E2;        /* Process Cyan */
 
-    /* Background Colors */
+    /* Neutral backgrounds */
     --dark-bg: #0a0a0a;
     --card-bg: #1a1a1a;
     --navbar-bg: #1a1a1a;
 }
 
 /* Import IEEE-approved fonts: Open Sans, Calibri, Formata */
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap'); */
 
 * {
     margin: 0;
@@ -41,7 +41,7 @@ body {
 
 /* Newsletter Section - Using IEEE Orange as per brand guidelines */
 .newsletter-section {
-    background: linear-gradient(135deg, var(--accent-orange) 0%, #E87722 100%);
+    background: linear-gradient(135deg, var(--accent-orange) 0%, #00629B 100%);
     padding: 40px 20px;
     position: relative;
     overflow: hidden;
