@@ -1,15 +1,15 @@
 import { useEffect, useRef, useState } from "react";
 import "../ConvenorSection.css"; // Ensure this matches your filename
 
-import bannerImg from "../assets/College_Img_2.png";
-import javedImg from "../assets/JavedPatel.jpg";
-import saurabhImg from "../assets/Sourabh-Mehata.png";
+import bannerImg from "../assets/Convenor_BG_Image.png";
+import javedImg from "../assets/Convenor_Javed_Patel.jpg";
+import saurabhImg from "../assets/CAO_Saurabh_Mehta.png";
 
 export default function ConvenorSection() {
   const profiles = [
     {
       id: 1,
-      name: "Javed Patel",
+      name: "Prof. Javed Patel",
       title: "Assistant Professor – VIT",
       quote: "I believe in teaching with real-world examples and inspiring students to think like engineers. I guide students not only to learn, but to apply knowledge through projects.",
       image: javedImg,

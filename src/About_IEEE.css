@@ -49,6 +49,7 @@
     width: 100%;
     position: relative;
     z-index: 2;
+    align-items: center; 
 
     /* Animation entry state */
     opacity: 0;
@@ -63,16 +64,16 @@
 
 /* Marker Dots */
 .timeline-item .marker {
-    grid-column: 2;
-    justify-self: center;
-    align-self: start;
-    margin-top: 25px;
-    width: 18px;
-    height: 18px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 16px;
+    height: 16px;
     border-radius: 50%;
     background: #000000;
     border: 3px solid #009CA6;
-    box-shadow: 0 0 15px rgba(0, 156, 166, 0.4);
+    box-shadow: 0 0 8px rgba(70, 225, 195, 0.3);
     z-index: 3;
 }
 

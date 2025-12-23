@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import "../Navbar.css";
-import whiteVitLogo from "../assets/white_vit_logo.png";
+import whiteVitLogo from "../assets/IEEE_VIT_Logo.png";
 
 export default function Navbar() {
   useEffect(() => {
@@ -50,10 +50,10 @@ export default function Navbar() {
 
       <nav className="navbar-right">
         <ul>
-          <li><a href="#past-events" className="nav-link">Past Events</a></li>
-          <li><a href="#upcoming-events" className="nav-link">Upcoming Events</a></li>
+          <li><a href="#past-events" className="nav-link">Home</a></li>
+          <li><a href="#upcoming-events" className="nav-link">Events</a></li>
           <li><a href="#about" className="nav-link">About Us</a></li>
-          <li><a href="#team" className="nav-link">Team</a></li>
+          <li><a href="#team" className="nav-link">Our Team</a></li>
           <li><a href="#contact" className="nav-link">Contact Us</a></li>
         </ul>
       </nav>

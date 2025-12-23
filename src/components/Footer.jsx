@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import "../Footer.css";
-import vitLogo from "../assets/vit_logo.png";
-import ieeeLogo from "../assets/ieee_logo.png";
+import ieeeLogo from "../assets/IEEE_Logo.png";
 
 export default function Footer() {
   useEffect(() => {
@@ -93,6 +92,7 @@ export default function Footer() {
                 <div className="contact-icon"><i className="fas fa-phone-alt"></i></div>
                 <div className="contact-details">
                   <h4>Chairperson</h4>
+                  <p className="person-name">Shrut Patil</p>
                   <a href="tel:+919322668948">+91 9322668948</a>
                 </div>
               </div>
@@ -101,6 +101,7 @@ export default function Footer() {
                 <div className="contact-icon"><i className="fas fa-phone-alt"></i></div>
                 <div className="contact-details">
                   <h4>Vice-Chairperson</h4>
+                  <p className="person-name">Siddhesh Rajgure</p>
                   <a href="tel:+919324873439">+91 9324873439</a>
                 </div>
               </div>
@@ -117,7 +118,7 @@ export default function Footer() {
               <div className="map-overlay"></div>
               <div className="map-container">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!..."
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3771.9571064014795!2d72.86795757497592!3d19.021611682171844!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7cfdb3592ae71%3A0x24a513f82882be61!2sVidyalankar%20Institute%20of%20Technology!5e0!3m2!1sen!2sin!4v1765386479050!5m2!1sen!2sin"
                   loading="lazy"
                 ></iframe>
               </div>
