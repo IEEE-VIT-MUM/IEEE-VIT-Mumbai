@@ -38,6 +38,13 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+};
+
   return (
     <header className="navbar">
       <div className="navbar-left">
@@ -50,8 +57,8 @@ export default function Navbar() {
 
       <nav className="navbar-right">
         <ul>
-          <li><a href="#past-events" className="nav-link">Home</a></li>
-          <li><a href="#upcoming-events" className="nav-link">Events</a></li>
+          <li><a href="#" className="nav-link" onClick={(e) => { e.preventDefault(); scrollToTop(); }}>Home</a></li>
+          <li><a href="#events" className="nav-link">Events</a></li>
           <li><a href="#about" className="nav-link">About Us</a></li>
           <li><a href="#team" className="nav-link">Our Team</a></li>
           <li><a href="#contact" className="nav-link">Contact Us</a></li>
@@ -60,3 +67,4 @@ export default function Navbar() {
     </header>
   );
 }
+ 

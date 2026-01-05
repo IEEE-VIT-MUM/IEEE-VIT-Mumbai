@@ -56,12 +56,55 @@ export default function Footer() {
             <div className="social-section">
               <h4 className="section-heading">Follow Us</h4>
               <div className="social-icons">
-                <a className="social-icon"><i className="fab fa-instagram"></i></a>
-                <a className="social-icon"><i className="fab fa-youtube"></i></a>
-                <a className="social-icon"><i className="fab fa-facebook-f"></i></a>
-                <a className="social-icon"><i className="fab fa-twitter"></i></a>
-                <a className="social-icon"><i className="fab fa-linkedin-in"></i></a>
-                <a className="social-icon"><i className="fab fa-github"></i></a>
+
+                <a href="https://www.instagram.com/ieeevit/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="social-icon" 
+                aria-label="IEEE VIT Instagram">
+                  <i className="fab fa-instagram"></i>
+                </a>
+
+                <a href="https://www.youtube.com/@ieeevit763" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="social-icon" 
+                aria-label="IEEE VIT YouTube">
+                  <i className="fab fa-youtube"></i>
+                </a>
+
+                <a href="https://www.facebook.com/IEEEVIT1"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-icon"
+                aria-label="IEEE VIT Facebook">
+                  <i className="fab fa-facebook-f"></i>
+                </a>
+
+                <a href="https://x.com/vidyalankarieee"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-icon"
+                aria-label="IEEE VIT on X (formerly Twitter)">
+                  <i className="fab fa-x-twitter"></i>
+                </a>
+
+                <a href="https://www.linkedin.com/company/ieeevit/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-icon"
+                aria-label="IEEE VIT LinkedIn">
+                  <i className="fab fa-linkedin-in"></i>
+                </a>
+
+                <a href="https://github.com/IEEE-VIT-MUM/IEEE-VIT-Mumbai"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-icon"
+                aria-label="IEEE VIT GitHub">
+                  <i className="fab fa-github"></i>
+                </a>
+
               </div>
             </div>
 

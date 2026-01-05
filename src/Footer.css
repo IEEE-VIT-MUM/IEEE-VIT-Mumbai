@@ -490,6 +490,7 @@ body {
     width: 3px;
     background: linear-gradient(to bottom, var(--accent-cyan), var(--ieee-blue));
     transition: width 0.3s ease;
+    pointer-events: none; /* ✅ THIS FIXES IT */
 }
 
 .contact-item:hover::before {

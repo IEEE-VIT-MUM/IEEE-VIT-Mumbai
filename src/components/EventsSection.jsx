@@ -198,7 +198,8 @@ export default function EventsSection() {
   };
 
   return (
-    <section className="ev-section">
+    <section id="events" className="ev-section">
+
       <div className="ev-header">
         <p className="ev-kicker">IEEE VIT Student Branch</p>
         <h1 className="ev-heading">Events</h1>
