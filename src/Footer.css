@@ -1,0 +1,968 @@
+:root {
+    /* ================= IEEE BRAND COLORS ================= */
+    --ieee-blue: #00629B;          /* PMS 3015 C */
+    --ieee-dark-blue: #002855;     /* Dark brand blue */
+    --ieee-black: #000000;
+    --ieee-white: #FFFFFF;
+    --ieee-gray: #75787B;
+    --ieee-light-gray: #F5F5F5;
+
+    /* Expanded IEEE Palette (Approved) */
+    --accent-orange: #00B5E2;      /* 137 C */
+    --accent-orange-dark: #00629B; /* 158 C */
+    --accent-teal: #009CA6;        /* 320 C */
+    --accent-cyan: #00B5E2;        /* Process Cyan */
+
+    /* Neutral backgrounds */
+    --dark-bg: #0a0a0a;
+    --card-bg: #1a1a1a;
+    --navbar-bg: #1a1a1a;
+}
+
+/* Import IEEE-approved fonts: Open Sans, Calibri, Formata */
+/* @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap'); */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', 'Calibri', sans-serif;
+    line-height: 1.6;
+    background: var(--dark-bg);
+    color: var(--ieee-white);
+}
+
+.ieee-footer {
+    margin-top: 0;
+}
+
+/* Newsletter Section - Using IEEE Orange as per brand guidelines */
+.newsletter-section {
+    background: linear-gradient(135deg, var(--accent-orange) 0%, #00629B 100%);
+    padding: 40px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.newsletter-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 400px;
+    height: 400px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.newsletter-section::after {
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    left: -5%;
+    width: 350px;
+    height: 350px;
+    background: rgba(0, 0, 0, 0.08);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.newsletter-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    position: relative;
+    z-index: 1;
+    flex-wrap: wrap;
+}
+
+.newsletter-content {
+    flex: 0 0 auto;
+    text-align: left;
+}
+
+.newsletter-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--ieee-black);
+    margin-bottom: 8px;
+    line-height: 1.2;
+}
+
+.newsletter-subtitle {
+    font-size: 15px;
+    color: rgba(0, 0, 0, 0.75);
+    font-weight: 400;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 12px;
+    flex: 0 0 auto;
+    min-width: 450px;
+    align-items: center;
+    position: relative;
+}
+
+.newsletter-input {
+    flex: 1;
+    padding: 15px 24px;
+    border: none;
+    border-radius: 50px;
+    font-size: 14px;
+    background: rgba(255, 255, 255, 0.95);
+    color: var(--ieee-black);
+    outline: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.newsletter-input:focus {
+    background: var(--ieee-white);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.newsletter-input::placeholder {
+    color: rgba(0, 0, 0, 0.45);
+}
+
+.newsletter-btn {
+    padding: 15px 32px;
+    background: var(--ieee-black);
+    color: var(--ieee-white);
+    border: none;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
+}
+
+.newsletter-btn:hover {
+    background: var(--ieee-dark-blue);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+}
+
+.privacy-text {
+    position: absolute;
+    bottom: -28px;
+    right: 0;
+    font-size: 11px;
+    color: rgba(0, 0, 0, 0.65);
+    white-space: nowrap;
+}
+
+.privacy-text a {
+    color: var(--ieee-black);
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+/* Main Footer - Using IEEE Black as per brand guidelines */
+.footer-main {
+    background: var(--ieee-black);
+    padding: 50px 20px 30px;
+    color: var(--ieee-white);
+}
+
+.footer-container-new {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 45px;
+}
+
+.footer-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.brand-col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* Keeps the column content on the left side of the footer */
+}
+
+/* Brand Column - IEEE Master Brand representation */
+.brand-header {
+    display: flex;
+    justify-content: center;
+    width: 280px;
+    /* Matches the width of the logo/button for centering */
+    margin-bottom: 0 px;
+}
+
+.ieee-logo-wrapper {
+    padding: 0 !important;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    width: 280px;
+}
+
+.vit-logo {
+    width: 280px;
+    height: auto;
+    background: transparent;
+    padding: 0 px;
+    border-radius: 0px;
+    display: block;
+}
+
+.brand-description {
+    width: 280px;
+    text-align: center;
+    font-size: 16px;
+    /* CHANGED: Increased from 13px */
+    font-weight: 700;
+    /* CHANGED: Increased from normal/400 to bold */
+    color: var(--ieee-white);
+    margin: -10px 0 25px 0;
+    /* CHANGED: Top margin from -90px to 10px */
+    line-height: 1.2;
+    font-style: normal;
+}
+
+.ieee-master-brand {
+    display: none;
+}
+
+.ieee-text {
+    display: none;
+}
+
+.tagline-small {
+    display: none;
+}
+
+.section-heading {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--ieee-white);
+    margin-bottom: 18px;
+    position: relative;
+    padding-bottom: 8px;
+}
+
+.section-heading::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 35px;
+    height: 2px;
+    background: var(--accent-orange);
+    border-radius: 2px;
+}
+
+.social-section {
+    margin-top: 8px;
+    margin-bottom: 25px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.social-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    background: rgba(0, 98, 155, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ieee-blue);
+    font-size: 16px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.social-icon::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: var(--ieee-blue);
+    transition: all 0.4s ease;
+    transform: translate(-50%, -50%);
+}
+
+.social-icon:hover::before {
+    width: 100%;
+    height: 100%;
+}
+
+.social-icon:hover {
+    color: var(--ieee-white);
+    transform: translateY(-3px) scale(1.05);
+    border-color: var(--ieee-blue);
+    box-shadow: 0 6px 20px rgba(0, 98, 155, 0.4);
+}
+
+.social-icon i {
+    position: relative;
+    z-index: 1;
+}
+
+/* Map Column */
+.map-col {
+    min-width: 280px;
+}
+
+/* Map Location Name Style */
+.college-name-map-link {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ieee-white);
+    padding: 10px 0;
+    text-align: center;
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.map-wrapper {
+    position: relative;
+}
+
+.map-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(0, 98, 155, 0.1) 0%, transparent 50%, rgba(0, 156, 166, 0.1) 100%);
+    pointer-events: none;
+    z-index: 1;
+    border-radius: 16px;
+    opacity: 0.7;
+}
+
+.map-container {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 98, 155, 0.3), 0 0 0 1px rgba(0, 98, 155, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transition: all 0.4s ease;
+}
+
+.map-container::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent 30%, rgba(0, 181, 226, 0.1) 50%, transparent 70%);
+    animation: shimmer 3s infinite;
+    pointer-events: none;
+    z-index: 2;
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%) translateY(-100%) rotate(45deg);
+    }
+
+    100% {
+        transform: translateX(100%) translateY(100%) rotate(45deg);
+    }
+}
+
+.map-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 50px rgba(0, 98, 155, 0.5), 0 0 0 1px rgba(0, 181, 226, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* UPDATED: Improved map iframe styling for better orientation/fit */
+.map-container iframe {
+    width: 100%;
+    height: 250px;
+    /* Increased from 180px for better vertical fit */
+    border: none;
+    filter: saturate(1.1) contrast(1.15) brightness(0.98);
+    transition: filter 0.4s ease;
+    display: block;
+}
+
+/* Adjust hover filter for the new base values */
+.map-container:hover iframe {
+    filter: saturate(1.2) contrast(1.25) brightness(1.0);
+}
+
+/* Original .map-frame class (kept for completeness, though not used in index.html) */
+.map-frame {
+    width: 100%;
+    height: 180px;
+    border: none;
+    filter: saturate(0.8) contrast(1.1);
+    transition: filter 0.4s ease;
+    display: block;
+}
+
+.map-container:hover .map-frame {
+    filter: saturate(1) contrast(1.2);
+}
+
+/* Map Directions Link Style */
+.map-directions-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 13px 24px;
+    /* Updated padding for consistency with other CTA */
+    margin-top: 0;
+    /* Removed margin-top, now handled by .cta-button-row */
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 14px;
+    /* Updated font size for consistency */
+    font-weight: 700;
+    transition: all 0.3s ease;
+    width: 100%;
+    /* Will be overridden by flex: 1 in the new container */
+    background: linear-gradient(135deg, var(--ieee-blue), #004070);
+    color: var(--ieee-white);
+}
+
+.map-directions-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 98, 155, 0.6);
+}
+
+/* Style for Query form when placed in the Contact Column */
+.contact-query-form {
+    margin-top: 30px;
+    width: 100%;
+}
+
+/* Contact Column */
+.contact-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-items {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.contact-item {
+    display: flex;
+    gap: 12px;
+    padding: 12px 14px;
+    background: rgba(0, 98, 155, 0.08);
+    border-radius: 10px;
+    border-left: 3px solid var(--ieee-blue);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 3px;
+    background: linear-gradient(to bottom, var(--accent-cyan), var(--ieee-blue));
+    transition: width 0.3s ease;
+    pointer-events: none; /* ✅ THIS FIXES IT */
+}
+
+.contact-item:hover::before {
+    width: 100%;
+    opacity: 0.1;
+}
+
+.contact-item:hover {
+    background: rgba(0, 98, 155, 0.15);
+    transform: translateX(5px);
+}
+
+.contact-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    background: var(--ieee-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ieee-white);
+    font-size: 15px;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.contact-item:hover .contact-icon {
+    transform: rotate(5deg) scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 98, 155, 0.4);
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.contact-details h4 {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--ieee-gray);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.contact-details a {
+    color: var(--ieee-white);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.contact-details a:hover {
+    color: var(--accent-cyan);
+}
+
+/* ==================== CTA Row Styles ==================== */
+
+/* NEW: Container to put both buttons on the same row */
+.cta-button-row {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 20px;
+    width: 100%;
+}
+
+/* Make both buttons share space equally within the row */
+.cta-button-row .cta-btn {
+    flex: 0 1 auto;
+    /* Makes both buttons grow to fill the row */
+    max-width: 280;
+    min-width: 240;
+    /* Allow flex items to shrink */
+    padding: 13px 24px;
+}
+
+.cta-button-row .join-ieee-btn {
+    flex: 0 1 auto;
+    min-width: 220px;
+    max-width: 280px;
+    /* Matches the width of the logo and tagline */
+    padding: 13px 24px;
+}
+
+/* CTA Button - General Styling */
+.cta-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 13px 24px;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    min-height: 48px;
+}
+
+/* Specific button styles */
+.join-ieee-btn,
+.map-directions-link {
+    flex: 0 1 220px;
+    /* Set a fixed base width matching the logo */
+    max-width: 250px;
+    /* Prevents it from stretching too far */
+    padding: 13px 20px;
+    background: linear-gradient(135deg, var(--ieee-blue), #004070);
+    color: var(--ieee-white);
+    box-shadow: 0 4px 15px rgba(0, 98, 155, 0.4);
+}
+
+.join-ieee-btn:hover,
+.map-directions-link:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(0, 98, 155, 0.6);
+    background: linear-gradient(135deg, #004070, var(--ieee-blue));
+}
+
+/* Query Form Wrapper */
+.query-form-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 250px;
+    align-items: center;
+}
+
+.query-form {
+    display: flex;
+    gap: 8px;
+    width: 100%;
+}
+
+/* Query Form Inline Style */
+.inline-query-form {
+    display: flex;
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.query-input {
+    flex-grow: 1;
+    border: none;
+    border-top: 2px solid var(--ieee-blue);
+    border-bottom: 2px solid var(--ieee-blue);
+    border-left: 2px solid var(--ieee-blue);
+    padding: 12px 18px;
+    border-radius: 0;
+    background: var(--dark-bg);
+    color: var(--ieee-white);
+    font-size: 14px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.query-input:focus {
+    border-color: var(--accent-cyan);
+    box-shadow: 0 0 0 3px rgba(0, 181, 226, 0.3);
+}
+
+.query-input::placeholder {
+    color: var(--ieee-gray);
+    opacity: 0.7;
+}
+
+.query-submit-inline-btn {
+    flex-shrink: 0;
+    width: 50px;
+    background: var(--ieee-blue);
+    color: var(--ieee-white);
+    border: none;
+    border-radius: 0 8px 8px 0;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s ease, transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 2px solid var(--ieee-blue);
+    border-bottom: 2px solid var(--ieee-blue);
+    border-right: 2px solid var(--ieee-blue);
+    padding: 0;
+}
+
+.query-submit-inline-btn:hover {
+    background: #004070;
+    transform: scale(1.02);
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    background: var(--ieee-black);
+    padding: 25px 20px;
+}
+
+.footer-bottom-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.copyright-section p {
+    font-size: 13px;
+    color: var(--ieee-gray);
+}
+
+.single-sentence-footer p {
+    font-size: 13px;
+    color: var(--ieee-gray);
+    font-style: italic;
+}
+
+/* ==================== RESPONSIVE DESIGN ==================== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .navbar {
+        height: 90px;
+        padding: 0 30px;
+    }
+
+    .navbar-logo {
+        height: 65px;
+        max-width: 240px;
+    }
+
+    .navbar-right ul {
+        gap: 20px;
+    }
+
+    .nav-link {
+        padding: 8px 14px;
+        font-size: 14px;
+    }
+
+    .main-content {
+        margin-top: 90px;
+    }
+
+    .footer-container-new {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+
+    .map-col {
+        grid-column: 1 / -1;
+    }
+
+    .contact-col {
+        align-items: flex-start;
+    }
+
+    .footer-bottom-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .single-sentence-footer {
+        order: 3;
+    }
+
+    .copyright-section {
+        order: 1;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 12px 20px;
+        height: auto;
+        min-height: 110px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar-left {
+        margin-bottom: 14px;
+        margin-right: 0;
+    }
+
+    .navbar-logo {
+        height: 85px;
+        filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.85));
+    }
+
+    .navbar-right ul {
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .nav-link {
+        padding: 6px 12px;
+        font-size: 13px;
+    }
+
+    .main-content {
+        margin-top: 140px;
+    }
+
+    .newsletter-section {
+        padding: 40px 20px;
+    }
+
+    .newsletter-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .newsletter-content {
+        text-align: center;
+    }
+
+    .newsletter-title {
+        font-size: 28px;
+    }
+
+    .newsletter-form {
+        flex-direction: column;
+        max-width: 100%;
+        min-width: auto;
+        width: 100%;
+    }
+
+    .newsletter-input,
+    .newsletter-btn {
+        width: 100%;
+    }
+
+    .privacy-text {
+        position: static;
+        margin-top: 15px;
+        text-align: center;
+    }
+
+    .footer-main {
+        padding: 40px 20px 30px;
+    }
+
+    .footer-container-new {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .contact-col,
+    .map-col {
+        grid-column: auto;
+        align-items: center;
+    }
+
+    .footer-col {
+        align-items: center;
+    }
+
+    .brand-header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .brand-description {
+        text-align: center;
+    }
+
+    .section-heading {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .section-heading::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .map-col .section-heading::after,
+    .contact-col .section-heading::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .college-name-map-link {
+        text-align: center;
+    }
+
+    .map-directions-link {
+        max-width: 450px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .footer-bottom-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
+
+    .brand-col .join-ieee-btn,
+    .contact-query-form {
+        max-width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Ensure the button row is centered in mobile view */
+    .cta-button-row {
+        max-width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 520px) {
+    .navbar {
+        padding: 10px 16px;
+        min-height: 105px;
+    }
+
+    .navbar-logo {
+        height: 55px;
+        max-width: 200px;
+    }
+
+    .navbar-right ul {
+        gap: 8px;
+    }
+
+    .nav-link {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+
+    .newsletter-title {
+        font-size: 24px;
+    }
+
+    .newsletter-btn {
+        padding: 14px 28px;
+    }
+
+    .footer-main {
+        padding: 35px 15px 20px;
+    }
+
+    .social-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 15px;
+    }
+
+    .footer-bottom {
+        padding: 20px 15px;
+    }
+
+    /* Force buttons to stack on very small screens */
+    .cta-button-row {
+        flex-direction: column;
+        gap: 8px;
+    }
+}

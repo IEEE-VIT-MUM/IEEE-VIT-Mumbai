@@ -1,0 +1,106 @@
+/* ========================================
+   NAVBAR CONTAINER
+   ======================================== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    /* Deep black with slight transparency */
+    background: #000000; 
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 10000; 
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+    border-bottom: 1px solid #2a2e36;
+}
+
+/* ========================================
+   LEFT SIDE (LOGO/TITLE)
+   ======================================== */
+.navbar-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* "Vidyalankar Institute of Technology" */
+.navbar-left h1 {
+    font-size: 1.1rem;
+    color: #FFFFFF;
+    margin: 0;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* "IEEE Student Branch" */
+.navbar-left p {
+    font-size: 0.9rem;
+    color: #00B5E2; /* Theme Mint/Teal */
+    margin: 0;
+    font-weight: 400;
+}
+
+/* ========================================
+   RIGHT SIDE (NAVIGATION LINKS)
+   ======================================== */
+.navbar-right ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-link {
+    text-decoration: none;
+    padding: 8px 18px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #d6d6d6;
+    border-radius: 20px;
+    background: #1a181d; /* Solid background for buttons */
+    border: 1px solid #333;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    white-space: nowrap;
+}
+
+/* HOVER STATE */
+.nav-link:hover {
+    background: #00B5E2 ; /* Theme color */
+    color: #0e0f14;       /* Dark text for contrast */
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(70, 225, 195, 0.3);
+    border-color: #00B5E2 ;
+}
+
+/* ACTIVE STATE */
+/* .nav-link.active {
+    background: #00B5E2 ;
+    color: #0e0f14;
+    border-color: #00B5E2 ;
+} */
+
+/* ========================================
+   MOBILE ADAPTATION
+   ======================================== */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0 20px;
+        height: 70px;
+    }
+    
+    .navbar-left h1 {
+        font-size: 0.95rem;
+    }
+    
+    .navbar-right {
+        display: none; /* Usually hidden behind a hamburger menu on mobile */
+    }
+}
