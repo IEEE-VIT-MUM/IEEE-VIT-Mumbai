@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="night">
+<head>
+    <meta name="loadbalancer_contact" content="Shrut Patil <shrut.patil@vit.edu.in>">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="IEEE Student Branch VIT is an active student chapter of the global IEEE organization, operating under the Bombay Section (Region 10). Through its diverse Special Interest Groups (SIGs), IEEE VIT fosters a culture of innovation where students conceptualize, design, and build impactful projects. These initiatives go beyond theory, empowering students to apply cutting-edge technology to address real-world challenges and create meaningful solutions for everyday life.">
+    <meta name="abstract" content="IEEE STUDENT BRANCH VIT">
+    <meta name="keywords" content="IEEE, IEEE VIT, IEEE Vidyalankar Institute of Technology, Student Chapter Bombay R10 Section">
+    <meta name="robots" content="index, follow">
+    <meta name="revisit-after" content="3 days">
+    <meta name="copyright" content="IEEE VIT">
+    <meta name="language" content="English">
+    <meta name="web_author" content="IEEE VIT">
+    <meta name="author" content="IEEE VIT">
+    <meta name="contact" content="ieee.sb@vit.edu.in">
+    <meta name="reply-to" content="ieee.sb@vit.edu.in">
+    <meta name="distribution" content="global">
+    <meta name="no-email-collection" content="http://www.metatags.info/nospamharvesting">
+    <meta name="rating" content="general">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+
+    <meta property="fb:app_id" content="0011038251882641">
+    <meta property="og:url" content="">
+    <meta property="og:title" itemprop="name" content="IEEE VIT | About Us">
+    <meta property="og:image" itemprop="image" content="/static/img/ieee-vit-logo.png">
+    <meta property="og:description" itemprop="description" content="IEEE Student Branch VIT is an active student chapter of the global IEEE organization, operating under the Bombay Section (Region 10).">
+    <meta property="og:site_name" content="IEEE VIT | About Us">
+
+    <meta name="msapplication-TileColor" content="#0562DC">
+    <meta name="theme-color" content="#0562DC">
+
+    <title>About Us | Corpus</title>
+    <link rel="icon" href="/static/img/favicon.ico" type="image/x-icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.4.19/dist/full.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
+
+    <style>
+        /* Global Reset */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Ubuntu', sans-serif;
+        }
+
+        /* Dark/Light Mode Logo Toggle */
+        .dark-logo { display: none; }
+        .light-logo { display: block; }
+        [data-theme="night"] .dark-logo { display: block; }
+        [data-theme="night"] .light-logo { display: none; }
+
+        /* Particles Background Container */
+        #particles-js {
+            position: fixed;
+            inset: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Tiny Slider Customization */
+        .tns-outer { position: relative; }
+        .tns-nav {
+            text-align: center;
+            padding: 10px 0;
+        }
+        .tns-nav button {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #ccc;
+            border: none;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+        .tns-nav button.tns-nav-active {
+            background: #0562DC;
+        }
+        /* =========================
+        HORIZONTAL TIMELINE STYLE
+        ========================= */
+
+        .timeline-wrapper {
+            position: relative;
+            width: 100%;
+            margin-top: 3rem;
+        }
+
+        .timeline-track {
+            position: relative;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.25);
+            border-radius: 999px;
+            overflow: hidden;
+        }
+
+        /* animated moving dots */
+        .timeline-track::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -40%;
+            width: 40%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                to right,
+                rgba(255,255,255,0.8) 0px,
+                rgba(255,255,255,0.8) 6px,
+                transparent 6px,
+                transparent 14px
+            );
+            animation: timeline-flow 3s linear infinite;
+        }
+
+        @keyframes timeline-flow {
+            from { left: -40%; }
+            to   { left: 100%; }
+        }
+
+        /* timeline nodes */
+        .timeline-node {
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 14px;
+            height: 14px;
+            background: rgba(255,255,255,0.9);
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(255,255,255,0.6);
+        }
+
+        /* node labels */
+        .timeline-content {
+            margin-top: 2.5rem;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 2rem;
+            text-align: center;
+        }
+        /* =========================
+        SECTION FADE ON SCROLL
+        ========================= */
+
+        .section-fade {
+            transition:
+                opacity 0.8s ease,
+                transform 0.8s ease;
+            transition-delay: 0.1s;
+        }
+
+        .section-fade.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .card {
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.45);
+        }
+        .card-body p {
+            padding: 2rem 2.75rem 2.75rem;
+        }
+        .card-title {
+            margin-bottom: 1.25rem;
+            line-height: 1.15;
+        }
+        .card-actions {
+            margin-top: 2rem;
+        }
+        .card {
+            border-radius: 1.25rem;
+        }
+        .card-body {
+            padding: 2.5rem 2.25rem;
+        }
+        .card figure {
+            margin-bottom: 0.75rem;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div id="particles-js"></div>
+    <div class="relative z-10"></div>
+    <div class="drawer relative z-10">
+        <input id="my-drawer-3" type="checkbox" class="drawer-toggle">
+        
+        <div class="drawer-content bg-primary text-primary-content flex flex-col">
+            <div class="navbar w-full bg-primary text-primary-content flex justify-between">
+                
+                <div class="flex-none lg:hidden">
+                    <label for="my-drawer-3" aria-label="open sidebar" class="btn btn-square btn-ghost">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"></path>
+                        </svg>
+                    </label>
+                </div>
+
+                <div class="mx-2 px-2">
+                    <a href="/" class="btn btn-ghost normal-case text-xl">
+                        <img src="/static/img/ieee-vit-logo-white.png" alt="IEEE VIT Logo" class="dark-logo logo" style="height: 40px;">
+                        <img src="/static/img/ieee-vit-logo-color.png" alt="IEEE VIT Logo" class="light-logo logo" style="height: 40px;">
+                    </a>
+                </div>
+
+                <div class="hidden flex-none lg:block">
+                    <ul class="menu menu-horizontal text-lg font-bold">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/about_us/">About Us</a></li>
+                        <li><a href="/team/">Teams</a></li>
+                        
+                        <li>
+                            <details>
+                                <summary>SIGs</summary>
+                                <ul class="bg-primary p-2">
+                                    <li><a href="/sig/aess/">IEEE-AESS</a></li>
+                                    <li><a href="/sig/grss/">IEEE-GRSS</a></li>
+                                </ul>
+                            </details>
+                        </li>
+
+                        <li>
+                            <details>
+                                <summary>Affinity Groups</summary>
+                                <ul class="bg-primary p-2">
+                                    <li><a href="/sig/wie/">WiE</a></li>
+                                </ul>
+                            </details>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="flex-none lg:block">
+                    <a href="/accounts/login/" class="btn btn-ghost">
+                        Login
+                        <span class="material-symbols-outlined">login</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="drawer-side">
+            <label for="my-drawer-3" aria-label="close sidebar" class="drawer-overlay"></label>
+            <ul class="menu bg-primary text-primary-content min-h-full w-80 p-4 font-bold text-lg">
+                <div class="flex justify-end">
+                    <label for="my-drawer-3" aria-label="close sidebar" class="btn btn-ghost">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block h-6 w-6 stroke-current">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </label>
+                </div>
+
+                <li><a href="/">Home</a></li>
+                <li><a href="/about_us/">About Us</a></li>
+                <li><a href="/team/">Teams</a></li>
+                <li>
+                    <details>
+                        <summary>SIGs</summary>
+                        <ul class="bg-primary">
+                            <li><a href="/sig/aess/">IEEE-AESS</a></li>
+                            <li><a href="/sig/grss/">IEEE-GRSS</a></li>
+                        </ul>
+                    </details>
+                </li>
+                <li>
+                    <details>
+                        <summary>Affinity Groups</summary>
+                        <ul class="bg-primary">
+                            <li><a href="/sig/wie/">WiE</a></li>
+                        </ul>
+                    </details>
+                </li>
+                <li><a href="/blog/">Blog</a></li>
+                <li><a href="/smp/">SMP</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <section class="hero section-fade relative min-h-[50vh] min-w-screen bg-transparent">
+        <div id="particles-js" class="h-[50vh] w-full"></div>
+        <div class="hero-content text-center flex-col" style="position: relative; z-index: 1;">
+            <h1 class="text-3xl md:text-5xl lg:text-6xl font-extrabold">About Us</h1>
+        </div>
+    </section>
+
+    <section class="section-fade bg-transparent backdrop-blur-sm text-center prose px-10 lg:px-40 py-10 min-w-full">
+        <h1 class="text-4xl lg:text-5xl mb-8">About IEEE</h1>
+        <p class="text-justify">
+            IEEE is the world’s largest technical professional organization, committed to advancing technology for the benefit of humanity. With a strong global presence, IEEE brings together engineers, researchers, and innovators to drive technological progress across diverse domains. It empowers the global community through highly cited publications, prestigious conferences, and industry-defining technology standards that form the backbone of modern engineering and innovation. Beyond research and standardization, IEEE places strong emphasis on professional and educational development, offering platforms for lifelong learning, skill enhancement, and collaboration. Through its student branches, technical societies, and humanitarian initiatives, IEEE fosters innovation, leadership, and real-world impact, enabling technology professionals to transform ideas into solutions that shape a smarter, more connected, and sustainable future.
+        </p>
+        <p class="text-justify">
+            Through its 500,000+ members and presence in more than 190 countries, widely referenced
+            publications, conferences, technological standards, and professional and educational events, IEEE and its
+            members encourage a worldwide community to create for a better tomorrow. IEEE is the world's most trusted
+            "voice" for engineering, computer, and technology news.
+        </p>
+    </section>
+
+    <section class="section-fade bg-transparent backdrop-blur-sm text-center prose px-10 lg:px-40 py-10 min-w-full">
+        <h1 class="text-4xl lg:text-5xl mb-8">IEEE VIT Global View</h1>
+        <p class="text-justify">
+            The IEEE VIT Student Branch is one of the active student branches in the IEEE Bombay Section. The IEEE
+            Bombay Section is governed by the IEEE India Council, which falls under Region 10 of the IEEE Global
+            Organization.
+        </p>
+                
+        <div class="timeline-wrapper">
+        <div class="timeline-track">
+            <span class="timeline-node" style="left: 0%;"></span>
+            <span class="timeline-node" style="left: 25%;"></span>
+            <span class="timeline-node" style="left: 50%;"></span>
+            <span class="timeline-node" style="left: 75%;"></span>
+            <span class="timeline-node" style="left: 100%;"></span>
+        </div>
+
+        <div class="timeline-content not-prose">
+            <div>
+                <img class="w-28 mx-auto mb-3"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/IEEE_logo.svg/1200px-IEEE_logo.svg.png"
+                    alt="IEEE Logo">
+                <p>IEEE</p>
+            </div>
+
+            <div>
+                <img class="w-28 mx-auto mb-3"
+                    src="https://ieee.nitk.ac.in/static/img/logo/ieee-r10.png"
+                    alt="IEEE Region 10">
+                <p>Region 10</p>
+            </div>
+
+            <div>
+                <img class="w-28 mx-auto mb-3"
+                    src="https://ieee.nitk.ac.in/static/img/logo/ieee-india-council.png"
+                    alt="IEEE India Council">
+                <p>India Council</p>
+            </div>
+
+            <div>
+                <img class="w-28 mx-auto mb-3"
+                     src="https://ieeebombay.org/wp-content/uploads/2022/09/IEEE-BS-Logo.png"
+                        alt="IEEE Bombay Section">
+                    <p>Bombay Section</p>
+                </div>
+
+                <div>
+                    <img class="w-28 mx-auto mb-3"
+                    src="C:\Users\shrut\Desktop\about_us\blue logo-1.png"
+                            alt="IEEE VIT">
+                        <p>IEEE VIT</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="section-fade bg-transparent backdrop-blur-sm prose px-10 lg:px-40 py-10 min-w-full">
+        <div class="flex flex-col w-full lg:flex-row">
+            <div class="grid flex-grow mx-10 place-items-center">
+                <h2 class="text-3xl lg:text-4xl">IEEE Bombay Section</h2>
+                <img class="w-max my-5" src="https://ieeebombay.org/wp-content/uploads/2022/09/IEEE-BS-Logo.png" alt="IEEE Bombay Section Logo">
+                <p class="text-justify">
+                    The IEEE Bombay Section is one of the most active and influential sections of IEEE in India, serving as a dynamic hub for engineering, research, and technological innovation across the region. It brings together professionals, academics, researchers, and students from diverse technical disciplines to promote knowledge sharing and collaboration. Through technical conferences, workshops, seminars, industry interactions, and student-focused initiatives, the Bombay Section fosters professional growth and innovation at both grassroots and advanced levels. By supporting student branches, affinity groups, and special interest communities, the IEEE Bombay Section plays a vital role in nurturing future technologists while contributing to the advancement of technology that addresses regional and global challenges.
+                </p>
+            </div>
+            
+            <div class="divider lg:divider-horizontal"></div>
+        </div>
+    </section>
+
+    <section class="section-fade bg-transparent backdrop-blur-sm prose px-10 lg:px-40 py-10 min-w-full">
+        <div class="flex flex-col w-full lg:flex-row">
+            <div class="divider lg:divider-horizontal"></div>
+            <div class="grid flex-grow mx-10 place-items-center">
+                <h2 class="text-3xl lg:text-4xl">IEEE VIT</h2>
+                <img class="w-56 lg:w-96 my-8" src="C:\Users\shrut\Desktop\about_us\blue logo-1.png" alt="IEEE VIT Logo">
+                <p class="text-justify">
+                    IEEE Student Branch VIT is an active student chapter of the global IEEE organization, operating under the Bombay Section (Region 10). Through its diverse Special Interest Groups (SIGs), IEEE VIT fosters a culture of innovation where students conceptualize, design, and build impactful projects. These initiatives go beyond theory, empowering students to apply cutting-edge technology to address real-world challenges and create meaningful solutions for everyday life. By fostering leadership and professional excellence, IEEE VIT serves as a launchpad for students to transition into global technology leaders.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-fade bg-transparent backdrop-blur-sm text-center prose px-6 lg:px-20 py-10 min-w-full">
+        <h1 class="text-4xl lg:text-5xl text-center mb-8">Societies</h1>
+        
+        <div class="hidden lg:block" id="slider-div">
+            <div class="px-3 mb-6">
+                <div class="card bg-base-100 shadow-xl">
+                    <figure class="pt-8 mb-0">
+                        <img src="https://ieee-aess.org/files/ieeeaess/styles/large/public/images/media/photos/aess_logo_2011_no-text_COLOR_300dpi_registered.png?itok=k_fO3RlZ" alt="AESS Logo" class="h-14 lg:h-20 inline">
+                    </figure>
+                    <div class="card-body items-center">
+                        <h2 class="card-title text-xl lg:text-3.75xl">Aerospace and Electronic Systems Society</h2>
+                        <p class="text-center">IEEE AESS VIT provides a collaborative platform for students to explore cutting-edge technologies through hands-on projects, technical workshops, expert talks, and research-driven initiatives.</p>
+                        <div class="card-actions mt-3 not-prose">
+                            <a role="button" href="https://ieee-aess.org/" class="btn btn-outline btn-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="px-3 mb-6">
+                <div class="card bg-base-100 shadow-xl">
+                    <figure class="pt-8 mb-0">
+                        <img src="https://ieeespain.org/wp-content/uploads/2019/08/12-grss-logo_2.gif" style="display: none;" alt="GRSS Logo" class="dark-logo h-14 lg:h-20 inline">
+                    </figure>
+                    <div class="card-body items-center">
+                        <h2 class="card-title text-xl lg:text-3.75xl">Geoscience and Remote Sensing Society</h2>
+                        <p class="text-center">GRSS encourages its members to participate in science, engineering, applications, and education linked to the advancement of geoscience and remote sensing for the benefit of society.</p>
+                        <div class="card-actions mt-3 not-prose">
+                            <a role="button" href="https://www.grss-ieee.org/" class="btn btn-outline btn-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="px-3 mb-6">
+                <div class="card bg-base-100 shadow-xl">
+                    <figure class="pt-8 mb-0">
+                        <img src="https://ieee.nitk.ac.in/static/img/logo/wie.png" alt="WIE Logo" class="h-14 lg:h-20 inline">
+                    </figure>
+                    <div class="card-body items-center">
+                        <h2 class="card-title text-xl lg:text-3.75xl">Women in Engineering</h2>
+                        <p class="text-center">The IEEE VIT WIE is dedicated to promoting technical interests among women engineers and scientists.IEEE women student members facilitate the recruitment and retention of women in technical disciplines</p>
+                        <div class="card-actions mt-3 not-prose">
+                            <a role="button" href="https://wie.ieee.org/" class="btn btn-outline btn-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="block lg:hidden">
+            <div class="px-10 py-5 bg-base-100">
+                <a href=""><img src="https://ieee-aess.org/themes/custom/aess/logo.png" alt="AESS Logo" class="h-24 inline"></a>
+                <h2 class="text-xl">Aerospace and Electronic Systems Society</h2>
+                <p class="text-justify">The IEEE VIT Aerospace and Electronic Systems Society Chapter focuses projects and research in areas of aerospace and electronic systems.</p>
+                <div class="mt-3 not-prose">
+                    <a href="/sig/aess/" class="btn btn-outline btn-primary">Learn More</a>
+                </div>
+            </div>
+            <div class="px-10 py-5 bg-base-200">
+                <a href="https://www.grss-ieee.org/"><img src="https://www.grss-ieee.org/wp-content/uploads/2021/05/GRSS-logo-stacked-color.png" style="display: none;" alt="GRSS Logo" class="dark-logo h-24 inline"></a>
+                <a href="https://www.grss-ieee.org/"><img src="https://www.grss-ieee.org/wp-content/uploads/2021/05/GRSS-logo-stacked-color.png" alt="GRSS Logo" class="light-logo h-24 inline"></a>
+                <h2 class="text-xl">Geoscience and Remote Sensing Society</h2>
+                <p class="text-justify">GRSS encourages its members to participate in science, engineering, applications, and education.</p>
+                <div class="mt-3 not-prose">
+                    <a href="https://www.grss-ieee.org/" class="btn btn-outline btn-primary">Learn More</a>
+                </div>
+            </div>
+            <div class="px-10 py-5 bg-base-100">
+                <a href="https://wie.ieee.org/"><img src="https://ieee.nitk.ac.in/static/img/logo/wie.png" alt="WIE Logo" class="h-24 inline"></a>
+                <h2 class="text-xl">Women in Engineering</h2>
+                <p class="text-justify">The IEEE VIT WIE is a professional organisation dedicated to promoting technical interests among women engineers and scientists.</p>
+                <div class="mt-3 not-prose">
+                    <a href="https://wie.ieee.org/" class="btn btn-outline btn-primary">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
+
+    <script>
+        document.querySelectorAll("details").forEach((targetDetail) => {
+            targetDetail.addEventListener("toggle", () => {
+                if (targetDetail.open) {
+                    document.querySelectorAll("details").forEach((detail) => {
+                        if (detail !== targetDetail) {
+                            detail.removeAttribute("open");
+                        }
+                    });
+                }
+            });
+        });
+
+        $(document).ready(() => {
+            const theme = localStorage.getItem("corpusTheme") || "night";
+            const icon = theme == "winter" ? "dark_mode" : "light_mode";
+            document.documentElement.setAttribute("data-theme", theme);
+            $("#dark-mode-toggle").html(icon);
+            updateParticles(theme);
+            updateIndex(theme);
+        });
+
+        const updateParticles = (theme) => {
+            try {
+                if (theme == "winter") {
+                    particlesJS('particles-js', {
+                        particles: {
+                            number: { value: 80, density: { enable: true, value_area: 800 } },
+                            color: { value: "#0562DC" },
+                            shape: { type: "circle" },
+                            opacity: { value: 0.5, random: false },
+                            size: { value: 3, random: true },
+                            line_linked: { enable: true, distance: 150, color: "#0562DC", opacity: 0.4, width: 1 },
+                            move: { enable: true, speed: 2, direction: "none", random: false, straight: false, out_mode: "out", bounce: false }
+                        },
+                        interactivity: {
+                            detect_on: "canvas",
+                            events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" }, resize: true },
+                            modes: { repulse: { distance: 100, duration: 0.4 }, push: { particles_nb: 4 } }
+                        },
+                        retina_detect: true
+                    });
+                } else {
+                    particlesJS('particles-js', {
+                        particles: {
+                            number: { value: 80, density: { enable: true, value_area: 800 } },
+                            color: { value: "#ffffff" },
+                            shape: { type: "circle" },
+                            opacity: { value: 0.5, random: false },
+                            size: { value: 3, random: true },
+                            line_linked: { enable: true, distance: 150, color: "#ffffff", opacity: 0.4, width: 1 },
+                            move: { enable: true, speed: 2, direction: "none", random: false, straight: false, out_mode: "out", bounce: false }
+                        },
+                        interactivity: {
+                            detect_on: "canvas",
+                            events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" }, resize: true },
+                            modes: { repulse: { distance: 100, duration: 0.4 }, push: { particles_nb: 4 } }
+                        },
+                        retina_detect: true
+                    });
+                }
+            } catch (e) {
+                console.log("Particles.js error:", e);
+            }
+        };
+
+        const updateIndex = (theme) => {
+            if (theme == "winter") {
+                $(".dark-logo").hide();
+                $(".light-logo").show();
+            } else {
+                $(".light-logo").hide();
+                $(".dark-logo").show();
+            }
+        };
+
+        var slider = tns({
+            container: '#slider-div',
+            items: 3,
+            nav: true,
+            controls: false,
+            speed: 300,
+            autoplay: true,
+            autoplayText: [" ", " "],
+            autoplayHoverPause: true,
+            autoplayTimeout: 4000,
+            swipeAngle: false,
+            mouseDrag: true,
+            responsive: {
+                0: { items: 1 },
+                1024: { items: 3 }
+            }
+        });
+    </script>
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const sections = document.querySelectorAll(".section-fade");
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("active");
+                } else {
+                    entry.target.classList.remove("active");
+                }
+            });
+        }, {
+            threshold: 0.35
+        });
+
+        sections.forEach(section => observer.observe(section));
+    });
+    </script>
+</body>
+</html>
