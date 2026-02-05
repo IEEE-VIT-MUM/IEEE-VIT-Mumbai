@@ -1,28 +1,25 @@
 import './App.css'
-import About_IEEE from './components/About_IEEE.jsx';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar.jsx';
 import Footer from './components/Footer.jsx';
-import ConvenorSection from './components/ConvenorSection.jsx';
-import EventsSection from './components/EventsSection.jsx';
-import Hero from './components/Hero.jsx';
+import AboutPage from './components/About_page';
+// Import the new Home component we will create
+import Home from './components/Home.jsx'; 
 
 function App() {
   return (
-    <>
-
-      <Hero/>
-
-      <Navbar/>
-
-      <About_IEEE/>
-
-      <EventsSection/>
-
-      <ConvenorSection/>
-
-      <Footer/>
-    </>
-  )
+    <Router>
+      <Navbar />
+      <Routes>
+        {/* Landing Page Route */}
+        <Route path="/" element={<Home />} />
+        
+        {/* Separate About Page Route */}
+        <Route path="/about" element={<AboutPage />} />
+      </Routes>
+      <Footer />
+    </Router>
+  );
 }
 
-export default App
+export default App;

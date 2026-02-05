@@ -1,0 +1,152 @@
+/* Global styles for the about page */
+.about-page-root {
+    background-color: #0e0f14;
+    color: #d6d6d6;
+    min-height: 100vh;
+    font-family: 'Ubuntu', sans-serif;
+    padding-bottom: 50px;
+    overflow-x: hidden;
+}
+
+/* Hero Section Styling */
+.hero-section {
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+}
+
+.hero-section h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: #ffffff;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+/* Info Section Styling */
+.info-section {
+    padding: 60px 10%;
+    text-align: center;
+}
+
+.info-section h2 {
+    font-size: 2.5rem;
+    color: #46e1c3; /* IEEE Mint/Teal */
+    margin-bottom: 30px;
+}
+
+.text-container p {
+    text-align: justify;
+    line-height: 1.8;
+    font-size: 1.1rem;
+    color: #9fa6b2;
+}
+
+/* Horizontal Timeline Styling */
+.timeline-wrapper {
+    position: relative;
+    width: 100%;
+    margin-top: 50px;
+}
+
+.timeline-track {
+    height: 4px;
+    background: #2a2e36;
+    border-radius: 10px;
+    position: relative;
+}
+
+.timeline-track::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -40%;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, #46e1c3, transparent);
+    animation: flow 3s linear infinite;
+}
+
+@keyframes flow {
+    from { left: -40%; }
+    to { left: 100%; }
+}
+
+.timeline-node {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 15px;
+    height: 15px;
+    background: #46e1c3;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #46e1c3;
+}
+
+.timeline-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    margin-top: 30px;
+}
+
+.node-item img {
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+/* Society Cards */
+.society-card {
+    background-color: #16181d;
+    padding: 30px;
+    border-radius: 20px;
+    margin: 15px;
+    transition: transform 0.3s ease;
+    height: 100%;
+    border: 1px solid #2a2e36;
+}
+
+.society-card:hover {
+    transform: translateY(-10px);
+    border-color: #46e1c3;
+}
+
+.society-card img {
+    height: 80px;
+    margin-bottom: 20px;
+}
+
+.society-card h3 {
+    color: #46e1c3;
+    margin-bottom: 15px;
+}
+
+/* Fade In Animation */
+.section-fade {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.section-fade.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Tiny Slider Overrides */
+.tns-nav {
+    margin-top: 20px;
+}
+
+.tns-nav button {
+    background: #2a2e36;
+    border: none;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin: 5px;
+}
+
+.tns-nav button.tns-nav-active {
+    background: #46e1c3;
+}
