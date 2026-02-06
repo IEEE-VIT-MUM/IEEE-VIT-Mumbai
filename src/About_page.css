@@ -1,152 +1,163 @@
-/* Global styles for the about page */
+/* ========================================
+   CONTAINER AND OVERLAY
+   ======================================== */
 .about-page-root {
     background-color: #0e0f14;
-    color: #d6d6d6;
     min-height: 100vh;
-    font-family: 'Ubuntu', sans-serif;
-    padding-bottom: 50px;
+    width: 100%;
+    position: relative;
     overflow-x: hidden;
 }
 
-/* Hero Section Styling */
-.hero-section {
-    height: 50vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: transparent;
-}
-
-.hero-section h1 {
-    font-size: 3.5rem;
-    font-weight: 800;
+.vanta-content-overlay {
+    position: relative;
+    z-index: 5;
+    padding-top: 120px;
+    padding-bottom: 80px;
     color: #ffffff;
-    text-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
 }
 
-/* Info Section Styling */
+/* ========================================
+   SECTIONS STYLING
+   ======================================== */
 .info-section {
     padding: 60px 10%;
     text-align: center;
 }
 
 .info-section h2 {
-    font-size: 2.5rem;
-    color: #46e1c3; /* IEEE Mint/Teal */
+    font-size: 2.8rem;
+    color: #46e1c3;
     margin-bottom: 30px;
+    text-transform: uppercase;
 }
 
 .text-container p {
-    text-align: justify;
-    line-height: 1.8;
-    font-size: 1.1rem;
     color: #9fa6b2;
+    line-height: 1.8;
+    font-size: 1.15rem;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
-/* Horizontal Timeline Styling */
-.timeline-wrapper {
-    position: relative;
+/* ========================================
+   HORIZONTAL TIMELINE (150px Nodes)
+   ======================================== */
+.horizontal-timeline-container {
     width: 100%;
-    margin-top: 50px;
+    padding: 60px 0;
+    display: flex;
+    justify-content: center;
 }
 
-.timeline-track {
-    height: 4px;
-    background: #2a2e36;
-    border-radius: 10px;
+.horizontal-timeline-track {
+    display: flex;
+    align-items: flex-start;
     position: relative;
+    gap: 100px;
 }
 
-.timeline-track::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -40%;
-    width: 40%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, #46e1c3, transparent);
-    animation: flow 3s linear infinite;
+.h-timeline-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 5;
 }
 
-@keyframes flow {
-    from { left: -40%; }
-    to { left: 100%; }
-}
-
-.timeline-node {
-    position: absolute;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 15px;
-    height: 15px;
-    background: #46e1c3;
+.v-node {
+    width: 150px;
+    height: 150px;
+    background: #16181d; /* Solid background to prevent lag */
+    border: 2px solid #46e1c3;
     border-radius: 50%;
-    box-shadow: 0 0 10px #46e1c3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
 }
 
-.timeline-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    margin-top: 30px;
+.v-node img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
 }
 
-.node-item img {
-    height: 50px;
-    margin-bottom: 10px;
+.h-line-path {
+    position: absolute;
+    left: 150px;
+    top: 75px; /* Centered for 150px node */
+    width: 100px;
+    height: 2px;
+    background: #46e1c3;
 }
 
-/* Society Cards */
+.v-label {
+    margin-top: 20px;
+    color: #9fa6b2;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* ========================================
+   SOCIETIES GRID
+   ======================================== */
+.societies-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
 .society-card {
-    background-color: #16181d;
-    padding: 30px;
-    border-radius: 20px;
-    margin: 15px;
-    transition: transform 0.3s ease;
-    height: 100%;
+    background: #16181d; /* Removed transparency and blur */
     border: 1px solid #2a2e36;
+    border-radius: 20px;
+    width: 350px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease;
 }
 
-.society-card:hover {
-    transform: translateY(-10px);
-    border-color: #46e1c3;
-}
-
-.society-card img {
-    height: 80px;
+.society-img-wrap {
+    width: 120px;
+    height: 120px;
     margin-bottom: 20px;
 }
 
-.society-card h3 {
-    color: #46e1c3;
-    margin-bottom: 15px;
+.society-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
-/* Fade In Animation */
+.society-text h3 { color: #46e1c3; margin-bottom: 10px; }
+.society-text p { color: #9fa6b2; font-size: 0.95rem; }
+
+/* ========================================
+   ANIMATIONS (LIGHTWEIGHT)
+   ======================================== */
+.wobbly-box {
+    transition: transform 0.3s ease-out;
+}
+
+.wobbly-box:hover {
+    transform: scale(1.03); /* Simple scale is faster than complex rotate animations */
+    border-color: #46e1c3;
+}
+
 .section-fade {
     opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s ease-out;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
 .section-fade.active {
     opacity: 1;
     transform: translateY(0);
-}
-
-/* Tiny Slider Overrides */
-.tns-nav {
-    margin-top: 20px;
-}
-
-.tns-nav button {
-    background: #2a2e36;
-    border: none;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    margin: 5px;
-}
-
-.tns-nav button.tns-nav-active {
-    background: #46e1c3;
 }

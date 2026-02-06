@@ -10,7 +10,8 @@ export default function Home() {
         <Hero />
       </section>
       
-      <section id="about">
+      {/* This is the small 'About' summary on the main page */}
+      <section id="about-summary">
         <About_IEEE />
       </section>
       
