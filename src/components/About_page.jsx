@@ -143,7 +143,7 @@ const AboutPage = () => {
                     <h2>IEEE VIT</h2>
                     <div className="text-container">
                         <p>
-                            IEEE Student Branch VIT is an active student chapter of the global IEEE organization, operating under the Bombay Section (Region 10). Through its diverse Special Interest Groups (SIGs), IEEE VIT fosters a culture of innovation where students conceptualize, design, and build impactful projects. These initiatives go beyond theory, empowering students to apply cutting-edge technology to address real-world challenges and create meaningful solutions for everyday life.
+                            IEEE Student Branch VIT is an active student chapter of the global IEEE organization, operating under the Bombay Section (Region 10). Through its diverse Special Interest Groups (SIGs), IEEE VIT fosters a culture of innovation where students conceptualize, design and build impactful projects. These initiatives go beyond theory, empowering students to apply cutting-edge technology to address real-world challenges and create meaningful solutions for everyday life.
                         </p>
                     </div>
                 </section>
@@ -160,7 +160,7 @@ const AboutPage = () => {
                             </div>
                             <div className="society-text">
                                 <h3>Aerospace and Electronic Systems Society</h3>
-                                <p>IEEE AESS VIT provides a collaborative platform for students to explore cutting-edge technologies through hands-on projects, technical workshops, expert talks, and research-driven initiatives.</p>
+                                <p>IEEE AESS VIT provides a collaborative platform for students to explore cutting-edge technologies through hands-on projects, technical workshops, expert talks and research-driven initiatives.</p>
                             </div>
                         </div>
 
@@ -182,7 +182,7 @@ const AboutPage = () => {
                             </div>
                             <div className="society-text">
                                 <h3>Geoscience and Remote Sensing Society</h3>
-                                <p>GRSS encourages its members to participate in science, engineering, applications, and education linked to the advancement of geoscience and remote sensing for the benefit of society.</p>
+                                <p>GRSS encourages its members to participate in science, engineering, applications and education linked to the advancement of geoscience and remote sensing for the benefit of society.</p>
                             </div>
                         </div>
 

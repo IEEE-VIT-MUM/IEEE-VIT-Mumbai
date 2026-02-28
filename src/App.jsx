@@ -4,21 +4,24 @@ import Navbar from './components/Navbar.jsx';
 import Footer from './components/Footer.jsx';
 import AboutPage from './components/About_page';
 import TeamPage from './components/TeamSection.jsx';
-// Import the new Home component we will create
+import ScrollToTop from "./components/ScrollToTop";
 import Home from './components/Home.jsx'; 
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <Navbar />
-      <Routes>
-        {/* Landing Page Route */}
-        <Route path="/" element={<Home />} />
-        
-        {/* Separate About Page Route */}
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/team" element={<TeamPage />} />
-      </Routes>
+
+      {/* Main wrapper to offset fixed navbar */}
+      <div className="main-content">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/team" element={<TeamPage />} />
+        </Routes>
+      </div>
+
       <Footer />
     </Router>
   );

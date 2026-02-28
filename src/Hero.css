@@ -1,5 +1,5 @@
 .hero {
-  height: 100vh;
+  height: calc(100vh - var(--navbar-height));
   width: 100%;
   position: relative;
   display: flex;

@@ -5,7 +5,7 @@ const eventsData = [
   {
     id: 1,
     title: "Fest Calender",
-    date: "06-10-2024",
+    date: "2024-10-06",
     venue: "VIT Campus",
     tag: "Fest Event",
     poster: "/events/IEEE_Fest_Calender.jpeg",
@@ -15,7 +15,7 @@ const eventsData = [
   {
     id: 2,
     title: "Guest Seminar",
-    date: "07-10-2024",
+    date: "2024-10-07",
     venue: "M101",
     tag: "Seminar Event",
     poster: "/events/Guest_Seminar.jpeg",
@@ -25,7 +25,7 @@ const eventsData = [
   {
     id: 3,
     title: "Escape The Laboratory",
-    date: "08-10-2024",
+    date: "2024-10-08",
     venue: "M309 & M308",
     tag: "Fun Event",
     poster: "/events/Escape_The_Laboratory.png",
@@ -35,7 +35,7 @@ const eventsData = [
   {
     id: 4,
     title: "Codeager",
-    date: "09-10-2024",
+    date: "2024-10-09",
     venue: "M509 & M510",
     tag: "Tech Event",
     poster: "/events/Codeager.jpeg",
@@ -45,7 +45,7 @@ const eventsData = [
   {
     id: 5,
     title: "Vision2Venture",
-    date: "31-01-2025",
+    date: "2025-01-31",
     venue: "M302 & M315",
     tag: "Startup Pitch Event",
     poster: "/events/Vision2Venture.jpeg",
@@ -55,7 +55,7 @@ const eventsData = [
   {
     id: 6,
     title: "Virtual Vortex",
-    date: "11-02-2025",
+    date: "2025-02-11",
     venue: "B105,B203 & Boxing Area",
     tag: "Fun Event",
     poster: "/events/Virtual_Vortex.png",
@@ -65,7 +65,7 @@ const eventsData = [
   {
     id: 7,
     title: "PCB Desiging Workshop",
-    date: "26-08-2025",
+    date: "2025-08-26",
     venue: "L05",
     tag: "Workshop Event",
     poster: "/events/PCB_Desiging_Workshop.jpg",
@@ -75,7 +75,7 @@ const eventsData = [
   {
     id: 8,
     title: "IEEE Day Celebration",
-    date: "07-09-2025",
+    date: "2025-09-07",
     venue: "VIT Campus",
     tag: "Celebration Event",
     poster: "/events/IEEE_Day_Celebration.jpg",
@@ -85,16 +85,56 @@ const eventsData = [
   {
     id: 9,
     title: "Guest Speaker",
-    date: "08-09-2025",
+    date: "2025-09-08",
     venue: "Online Meeting",
     tag: "Webinar Event",
     poster: "/events/Guest_Speaker.png",
     registerLink: "#",
     infoLink: "#",
   },
+  {
+    id: 10,
+    title: "Agent Mode On",
+    date: "2026-01-20",
+    venue: "M201",
+    tag: "Agentic AI Workshop",
+    poster: "/events/Agent_Mode_On.jpeg",
+    registerLink: "#",
+    infoLink: "#",
+  },
+  {
+    id: 11,
+    title: "IdeaSphere",
+    date: "2026-01-30",
+    venue: "M413 & M501",
+    tag: "Innovative Pitch",
+    poster: "/events/IdeaSphere.png",
+    registerLink: "#",
+    infoLink: "#",
+  },
+  {
+    id: 12,
+    title: "IEEE Core Interviews",
+    date: "2026-02-12",
+    venue: "F205",
+    tag: "Interview",
+    poster: "/events/Core_Interviews.png",
+    registerLink: "#",
+    infoLink: "#",
+  },
+  {
+    id: 13,
+    title: "Hardware Hackathon",
+    date: "2026-03-14",
+    venue: "VIT Campus",
+    tag: "Hybrid 6+2 Hardware Hackathon",
+    poster: "/events/Hardware_Hackathon.jpg",
+    registerLink: "#",
+    infoLink: "#",
+  },
 ];
 
-const FILTERS = ["All", "Upcoming", "Past"];
+const FILTERS = ["Upcoming", "Past", "All"];
 
 function classifyEvent(eventDateStr) {
   const today = new Date();
@@ -104,6 +144,16 @@ function classifyEvent(eventDateStr) {
   eventDate.setHours(0, 0, 0, 0);
 
   return eventDate >= today ? "Upcoming" : "Past";
+}
+
+function formatDate(dateStr) {
+  const d = new Date(dateStr);
+
+  const day = String(d.getDate()).padStart(2, "0");
+  const month = String(d.getMonth() + 1).padStart(2, "0");
+  const year = d.getFullYear();
+
+  return `${day}-${month}-${year}`;
 }
 
 function EventCard({ event }) {
@@ -116,7 +166,7 @@ function EventCard({ event }) {
       <header className="ev-card-header">
         <p className="ev-tag">{event.tag}</p>
         <h3 className="ev-title">{event.title}</h3>
-        <p className="ev-date">{event.date}</p>
+        <p className="ev-date">{formatDate(event.date)}</p>
       </header>
 
       {/* poster */}
@@ -172,12 +222,38 @@ export default function EventsSection() {
     return result;
   }, [activeFilter]);
 
-  // when filter changes, scroll back to first card (fix "All" starting in middle)
-  useEffect(() => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollTo({ left: 0, behavior: "smooth" });
-    }
-  }, [activeFilter]);
+useEffect(() => {
+  const container = scrollRef.current;
+  if (!container) return;
+
+  const cards = container.querySelectorAll(".ev-card");
+  if (!cards.length) return;
+
+  let targetIndex = 0;
+
+  if (activeFilter === "Past") {
+    // Go to latest past event (last in ascending order)
+    targetIndex = cards.length - 1;
+  }
+
+  if (activeFilter === "All") {
+    // Go to latest event overall (last in ascending order)
+    targetIndex = cards.length - 1;
+  }
+
+  if (activeFilter === "Upcoming") {
+    // Default to first upcoming event
+    targetIndex = 0;
+  }
+
+  const targetCard = cards[targetIndex];
+  if (targetCard) {
+    container.scrollTo({
+      left: targetCard.offsetLeft,
+      behavior: "smooth",
+    });
+  }
+}, [activeFilter, filteredEvents]);
 
   const scrollByAmount = (direction) => {
     const container = scrollRef.current;
@@ -201,7 +277,6 @@ export default function EventsSection() {
     <section id="events" className="ev-section">
 
       <div className="ev-header">
-        <p className="ev-kicker">IEEE VIT Student Branch</p>
         <h1 className="ev-heading">Events</h1>
         <p className="ev-subtitle">
           Experience a year filled with flagship fests, cutting-edge technical workshops and dynamic chapter events designed to inspire innovation and growth.

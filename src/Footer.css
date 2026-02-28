@@ -254,12 +254,14 @@ body {
     margin-bottom: 18px;
     position: relative;
     padding-bottom: 8px;
+    text-align: center;
 }
 
 .section-heading::after {
     content: '';
     position: absolute;
-    left: 0;
+    left: 50%; 
+    transform: translateX(-50%);
     bottom: 0;
     width: 35px;
     height: 2px;
@@ -562,8 +564,8 @@ body {
 .cta-button-row .cta-btn {
     flex: 0 1 auto;
     /* Makes both buttons grow to fill the row */
-    max-width: 280;
-    min-width: 240;
+    max-width: 280px;
+    min-width: 240px;
     /* Allow flex items to shrink */
     padding: 13px 24px;
 }

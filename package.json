@@ -12,6 +12,7 @@
   "dependencies": {
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-router-dom": "^7.13.0",
     "three": "^0.134.0",
     "vanta": "^0.5.24"
   },

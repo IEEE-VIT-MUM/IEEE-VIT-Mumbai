@@ -8,74 +8,140 @@ export default function Navbar() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Smooth scroll logic for internal anchors
-    const handleAnchorClick = (e) => {
-      const href = e.currentTarget.getAttribute("href");
-      
-      // If we are on the home page, just scroll
-      if (href.startsWith("#") && location.pathname === "/") {
-        e.preventDefault();
-        const target = document.querySelector(href === "#" ? "body" : href);
-        if (target) {
-          target.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
-      }
-    };
-
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener("click", handleAnchorClick);
-    });
-
-    // Active link highlighting on scroll
     const onScroll = () => {
-      if (location.pathname !== "/") return;
+      // If NOT on homepage → highlight based on route
+      if (location.pathname !== "/") {
+        document.querySelectorAll(".nav-link").forEach(link => {
+          link.classList.remove("active");
 
-      let current = "";
-      const sections = document.querySelectorAll("section[id]");
-      sections.forEach(section => {
-        if (window.scrollY >= section.offsetTop - 100) {
-          current = section.getAttribute("id");
+          if (
+            (location.pathname === "/about" && link.textContent.trim() === "About Us") ||
+            (location.pathname === "/team" && link.textContent.trim() === "Our Team")
+          ) {
+            link.classList.add("active");
+          }
+        });
+        return;
+      }
+
+      // If on homepage → detect section
+      let currentSection = "home";
+
+      const sections = document.querySelectorAll("section[id], footer[id]");
+
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop - 120;
+        const sectionHeight = section.offsetHeight;
+
+        if (
+          window.scrollY >= sectionTop &&
+          window.scrollY < sectionTop + sectionHeight
+        ) {
+          currentSection = section.getAttribute("id");
         }
       });
 
-      document.querySelectorAll(".nav-link").forEach(link => {
+      document.querySelectorAll(".nav-link").forEach((link) => {
         link.classList.remove("active");
-        const href = link.getAttribute("href");
-        if (href === `#${current}` || (current === "home" && href === "#")) {
+
+        const text = link.textContent.trim();
+
+        if (
+          (currentSection === "home" && text === "Home") ||
+          (currentSection === "events" && text === "Events") ||
+          (currentSection === "contact" && text === "Contact Us")
+        ) {
           link.classList.add("active");
         }
       });
     };
 
     window.addEventListener("scroll", onScroll);
+    onScroll(); // run once on load
+
     return () => {
       window.removeEventListener("scroll", onScroll);
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.removeEventListener("click", handleAnchorClick);
-      });
     };
   }, [location]);
 
   return (
     <header className="navbar">
       <div className="navbar-left">
-        <Link to="/">
+        <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
           <img src={whiteVitLogo} alt="IEEE VIT Logo" className="navbar-logo" />
         </Link>
       </div>
 
       <nav className="navbar-right">
         <ul>
-          {/* Home Link */}
-          <li><Link to="/" className="nav-link">Home</Link></li>
-          
-          {/* External Navigation to About_page.jsx */}
-          <li><Link to="/about" className="nav-link">About Us</Link></li>
-          <li><Link to="/team" className="nav-link">Our Team</Link></li>
+          {/* Home */}
+          <li>
+            <Link
+              to="/"
+              className="nav-link"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            >
+              Home
+            </Link>
+          </li>
 
-          {/* Section Anchors (Works best on Home page) */}
-          <li><a href="#events" className="nav-link">Events</a></li>
-          <li><a href="#contact" className="nav-link">Contact Us</a></li>
+          {/* About */}
+          <li>
+            <Link to="/about" className="nav-link">
+              About Us
+            </Link>
+          </li>
+
+          {/* Team */}
+          <li>
+            <Link to="/team" className="nav-link">
+              Our Team
+            </Link>
+          </li>
+
+          {/* Events */}
+          <li>
+            <button
+              className="nav-link"
+              onClick={() => {
+                const scrollToEvents = () => {
+                  const element = document.getElementById("events");
+                  if (!element) return;
+
+                  const navbarHeight =
+                    document.querySelector(".navbar")?.offsetHeight || 80;
+
+                  const elementPosition =
+                    element.getBoundingClientRect().top + window.pageYOffset;
+
+                  const offsetPosition = elementPosition - navbarHeight;
+
+                  window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth",
+                  });
+                };
+
+                if (location.pathname === "/") {
+                  scrollToEvents();
+                } else {
+                  navigate("/");
+                  setTimeout(scrollToEvents, 150);
+                }
+              }}
+            >
+              Events
+            </button>
+          </li>
+
+          {/* Join IEEE */}
+          <li>
+            <a
+              href="https://www.ieee.org/membership/join/index.html" target="_blank" rel="noopener noreferrer" className="nav-link">
+              Join IEEE
+            </a>
+          </li>
+
         </ul>
       </nav>
     </header>
