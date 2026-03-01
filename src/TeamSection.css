@@ -156,7 +156,7 @@
   opacity: 1;
 }
 
-.social-icon {
+.social-team-icon {
   color: var(--white);
   transition: transform 0.2s ease;
   display: flex;
@@ -164,9 +164,11 @@
   justify-content: center;
 }
 
-.social-icon:hover {
+.social-team-icon:hover {
   transform: scale(1.2);
-  color: var(--ieee-accent);
+  /* color: var(--ieee-accent); */
+    color: var(--white);
+
 }
 
 .member-name {

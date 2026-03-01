@@ -27,7 +27,7 @@
 
 .info-section h2 {
     font-size: 2.8rem;
-    color: #46e1c3;
+    color: #00B5E2;
     margin-bottom: 30px;
     text-transform: uppercase;
 }
@@ -70,7 +70,7 @@
     width: 150px;
     height: 150px;
     background: #16181d; /* Solid background to prevent lag */
-    border: 2px solid #46e1c3;
+    border: 2px solid #00B5E2;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -90,7 +90,7 @@
     top: 75px; /* Centered for 150px node */
     width: 100px;
     height: 2px;
-    background: #46e1c3;
+    background: #00B5E2;
 }
 
 .v-label {
@@ -136,7 +136,7 @@
     object-fit: contain;
 }
 
-.society-text h3 { color: #46e1c3; margin-bottom: 10px; }
+.society-text h3 { color: #00B5E2; margin-bottom: 10px; }
 .society-text p { color: #9fa6b2; font-size: 0.95rem; }
 
 /* ========================================
@@ -148,7 +148,7 @@
 
 .wobbly-box:hover {
     transform: scale(1.03); /* Simple scale is faster than complex rotate animations */
-    border-color: #46e1c3;
+    border-color: #00B5E2;
 }
 
 .section-fade {

@@ -5,35 +5,38 @@ import * as THREE from "three";
 
 // Asset Imports
 import ieeeLogo from "../assets/IEEE_Logo.png";
-import ieeeVitLogo from "../assets/IEEE_VIT_Logo.png"; 
+import AESS from "../assets/AESS_logo.png";
+import WIE from "../assets/WIE_logo.png";
+import GRSS from "../assets/GRSS_logo.png";
+import ieeeVitLogo from "../assets/IEEE_VIT_Logo.png";
 
 const AboutPage = () => {
     // 1. Data for Vertical Timeline
     const globalViewItems = [
-        { 
-            id: 1, 
-            img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/IEEE_logo.svg/1200px-IEEE_logo.svg.png", 
-            label: "IEEE" 
+        {
+            id: 1,
+            img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/IEEE_logo.svg/1200px-IEEE_logo.svg.png",
+            label: "IEEE"
         },
-        { 
-            id: 2, 
-            img: "https://ieee.nitk.ac.in/static/img/logo/ieee-r10.png", 
-            label: "Region 10" 
+        {
+            id: 2,
+            img: "https://ieee.nitk.ac.in/static/img/logo/ieee-r10.png",
+            label: "Region 10"
         },
-        { 
-            id: 3, 
-            img: "https://ieee.nitk.ac.in/static/img/logo/ieee-india-council.png", 
-            label: "India Council" 
+        {
+            id: 3,
+            img: "https://ieee.nitk.ac.in/static/img/logo/ieee-india-council.png",
+            label: "India Council"
         },
-        { 
-            id: 4, 
-            img: "https://ieeebombay.org/wp-content/uploads/2022/09/IEEE-BS-Logo.png", 
-            label: "Bombay Section" 
+        {
+            id: 4,
+            img: "https://ieeebombay.org/wp-content/uploads/2022/09/IEEE-BS-Logo.png",
+            label: "Bombay Section"
         },
-        { 
-            id: 5, 
-            img: ieeeVitLogo, 
-            label: "IEEE VIT" 
+        {
+            id: 5,
+            img: ieeeVitLogo,
+            label: "IEEE VIT"
         },
     ];
 
@@ -47,19 +50,19 @@ const AboutPage = () => {
                 WAVES({
                     el: vantaRef.current,
                     THREE: THREE,
-                    mouseControls: true,
-                    touchControls: true,
+                    mouseControls: false, // Turn this off to save huge CPU cycles
+                    touchControls: false, // Turn this off
                     gyroControls: false,
                     minHeight: 200.0,
                     minWidth: 200.0,
-                    scale: 1.0,
-                    scaleMobile: 1.0,
-                    color: 0x000000,
-                    shininess: 20.0,
-                    waveHeight: 13.0,
-                    waveSpeed: 0.5,
+                    scale: 2.0,           // Increase scale to render fewer "waves" (saves GPU)
+                    scaleMobile: 4.0,     // Even higher scale for mobile
+                    color: 0x000000,      // Slightly lighter than background for subtle look
+                    shininess: 10.0,      // Lower shininess reduces light calculation
+                    waveHeight: 10.0,
+                    waveSpeed: 0.3,       // Slower speed feels smoother
                     zoom: 0.6,
-                    backgroundColor: 0x000000, // Matches your root background
+                    backgroundColor: 0x000000,
                 })
             );
         }
@@ -112,7 +115,7 @@ const AboutPage = () => {
                                     <div className="v-node wobbly-box">
                                         <img src={item.img} alt={item.label} />
                                     </div>
-                                    
+
                                     {/* Label below the node */}
                                     <div className="v-label-container">
                                         <span className="v-label">{item.label}</span>
@@ -156,7 +159,7 @@ const AboutPage = () => {
                         {/* Society Card 1 */}
                         <div className="society-card wobbly-box">
                             <div className="society-img-wrap">
-                                <img src={ieeeLogo} alt="AESS" />
+                                <img src={AESS} alt="AESS" />
                             </div>
                             <div className="society-text">
                                 <h3>Aerospace and Electronic Systems Society</h3>
@@ -167,7 +170,7 @@ const AboutPage = () => {
                         {/* Society Card 2 */}
                         <div className="society-card wobbly-box">
                             <div className="society-img-wrap">
-                                <img src={ieeeLogo} alt="WIE" />
+                                <img src={WIE} alt="WIE" />
                             </div>
                             <div className="society-text">
                                 <h3>Women in Engineering</h3>
@@ -178,7 +181,7 @@ const AboutPage = () => {
                         {/* Society Card 3 */}
                         <div className="society-card wobbly-box">
                             <div className="society-img-wrap">
-                                <img src={ieeeLogo} alt="GRSS" />
+                                <img src={GRSS} alt="GRSS" />
                             </div>
                             <div className="society-text">
                                 <h3>Geoscience and Remote Sensing Society</h3>

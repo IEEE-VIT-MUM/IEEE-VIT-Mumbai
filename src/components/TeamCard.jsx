@@ -22,7 +22,7 @@ const TeamCard = ({ name, position, linkedin, github }) => {
                         href={linkedin}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="social-icon"
+                        className="social-team-icon"
                         aria-label="LinkedIn"
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
@@ -34,7 +34,7 @@ const TeamCard = ({ name, position, linkedin, github }) => {
                         href={github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="social-icon"
+                        className="social-team-icon"
                         aria-label="GitHub"
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
