@@ -1,19 +1,34 @@
 import { useEffect } from "react";
+import { useState } from "react";
 import "../Footer.css";
 import ieeeLogo from "../assets/IEEE_Logo.png";
+import { supabase } from "../supabaseClient";
 
 export default function Footer() {
-  useEffect(() => {
-    const form = document.querySelector(".newsletter-form");
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
 
-    if (form) {
-      form.addEventListener("submit", (e) => {
-        e.preventDefault();
-        alert("Thank you for subscribing to our newsletter!");
-        form.reset();
-      });
+  const handleSubscribe = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    // Insert email into Supabase table
+    const { error } = await supabase
+      .from('newsletter_subscriptions')
+      .insert([{ email: email }]);
+
+    if (error) {
+      if (error.code === '23505') {
+        alert("This email is already subscribed!");
+      } else {
+        alert("Error: " + error.message);
+      }
+    } else {
+      alert("Thank you for subscribing to our newsletter!");
+      setEmail(""); // Reset input
     }
-  }, []);
+    setLoading(false);
+  };
 
   return (
     <footer className="ieee-footer" id="contact">
@@ -26,15 +41,18 @@ export default function Footer() {
             </p>
           </div>
 
-          <form className="newsletter-form">
+          <form className="newsletter-form" onSubmit={handleSubscribe}>
             <input
               type="email"
               placeholder="Enter your email..."
               className="newsletter-input"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               required
+              disabled={loading}
             />
-            <button type="submit" className="newsletter-btn">
-              Subscribe
+            <button type="submit" className="newsletter-btn" disabled={loading}>
+              {loading ? "Subscribing..." : "Subscribe"}
             </button>
           </form>
         </div>
