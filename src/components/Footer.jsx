@@ -14,7 +14,7 @@ export default function Footer() {
     try {
       // Insert email into Supabase table
       const { error } = await supabase
-        .from('newsletter_subscriptions')
+        .from('newsletter_subscription')
         .insert([{ email: email }]);
 
       if (error) {

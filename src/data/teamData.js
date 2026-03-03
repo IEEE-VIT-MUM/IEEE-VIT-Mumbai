@@ -87,18 +87,18 @@ export const headsData = [
         github: "https://github.com/tanviyerram08"
     },
     {
-        name: "Siddhi Lad",
-        position: "Publicity Head",
-        image: "https://ui-avatars.com/api/?name=Siddhi+Lad&background=003B5C&color=fff&size=128",
-        linkedin: "https://www.linkedin.com/in/lad-siddhi/",
-        github: "https://github.com/siddhivlad"
-    },
-    {
         name: "Maitry Mohite",
         position: "Digital Media & Public Branding",
         image: "https://ui-avatars.com/api/?name=Maitry+Mohite&background=003B5C&color=fff&size=128",
         linkedin: "https://www.linkedin.com/in/maitry-mohite",
         github: "https://github.com/maitry-mohite"
+    },
+    {
+        name: "Siddhi Lad",
+        position: "Publicity Head",
+        image: "https://ui-avatars.com/api/?name=Siddhi+Lad&background=003B5C&color=fff&size=128",
+        linkedin: "https://www.linkedin.com/in/lad-siddhi/",
+        github: "https://github.com/siddhivlad"
     },
     {
         name: "Raj Mali",
