@@ -40,7 +40,7 @@ export default function About_IEEE() {
               world's largest technical professional organization, focused on
               advancing technology for humanity. With over 417,000 members in 160
               countries, IEEE drives global innovation through highly cited
-              publications, conferences, technology standards, and professional
+              publications, conferences, technology standards and professional
               and educational activities.
             </p>
           </div>
@@ -54,7 +54,7 @@ export default function About_IEEE() {
             <p>
               IEEE's core purpose is to foster technological innovation and
               excellence for the benefit of humanity. We provide a global platform
-              for creating a better tomorrow by empowering engineers, scientists,
+              for creating a better tomorrow by empowering engineers, scientists
               and allied professionals to contribute through collaboration.
             </p>
           </div>
@@ -93,8 +93,8 @@ export default function About_IEEE() {
             <h3>Our Achievements</h3>
             <p>
               The IEEE Bombay Section Platinum Affiliate Award recognizes our
-              exceptional leadership, technical excellence, and dedication to
-              organizing impactful workshops, seminars, and professional events.
+              exceptional leadership, technical excellence and dedication to
+              organizing impactful workshops, seminars and professional events.
             </p>
           </div>
         </div>

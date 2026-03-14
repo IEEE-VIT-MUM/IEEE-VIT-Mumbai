@@ -85,9 +85,10 @@
     padding: 30px;
     background: #111827;
     border-radius: 4px;
-    /* CRITICAL: This keeps the snake lines inside the box */
     overflow: hidden;
-    transition: box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .timeline-item:hover .content {
@@ -214,47 +215,53 @@
 /* Typography */
 .content h3 {
     color: #00B5E2;
-    margin-bottom: 10px;
-    font-size: 1.3rem;
-    letter-spacing: 1px;
-    padding-right: 15px;
+    margin-bottom: 14px;
+    font-size: 1.5rem;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
-    text-align: justify;
-    text-justify: inter-word;
-    hyphens: auto;
+    text-align: center;
+    width: 100%;
 }
 
 .content p {
     color: #9fa6b2;
     line-height: 1.8;
-    font-size: 0.95rem;
+    font-size: 1rem;
     text-align: justify;
-    text-justify: inter-word;
-    hyphens: auto;
+    max-width: 520px;
+    margin: 0 auto;
 }
 
 /* ========================================
    MOBILE FIXES
    ======================================== */
 @media (max-width: 768px) {
+
     .timeline::before {
         left: 30px;
         transform: none;
     }
 
     .timeline-item {
-        grid-template-columns: 60px 1fr;
+        grid-template-columns: 1fr;
         margin-bottom: 40px;
+        padding-left: 70px;   /* space for line + marker */
+        position: relative;
     }
 
+    /* ⭐ PERFECT CENTERED MARKER */
     .timeline-item .marker {
-        grid-column: 1;
-        margin-top: 20px;
+        position: absolute;
+        left: 11px;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 5;
     }
 
     .timeline-item.left .content,
     .timeline-item.right .content {
-        grid-column: 2;
+        grid-column: auto;
         text-align: left;
     }
+
 }

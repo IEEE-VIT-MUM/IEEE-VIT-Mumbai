@@ -43,7 +43,7 @@ export default function Footer() {
           <div className="newsletter-content">
             <h2 className="newsletter-title">Subscribe to our newsletter</h2>
             <p className="newsletter-subtitle">
-              Be the first to receive updates, tips, and more.
+              Be the first to receive updates, tips and more.
             </p>
           </div>
 
@@ -74,7 +74,7 @@ export default function Footer() {
             </div>
 
             <p className="brand-description">
-              Advancing Technology for Humanity
+              Advancing Technology for Humanity!
             </p>
 
             <div className="social-section">
@@ -123,7 +123,7 @@ export default function Footer() {
                 <div className="contact-details">
                   <h4>Chairperson</h4>
                   <p className="person-name">Shrut Patil</p>
-                  <a href="tel:+919322668948">+91 9322668948</a>
+                  <a href="tel:+919322668948">+91 93226 68948</a>
                 </div>
               </div>
               <div className="contact-item">
@@ -131,7 +131,7 @@ export default function Footer() {
                 <div className="contact-details">
                   <h4>Vice-Chairperson</h4>
                   <p className="person-name">Siddhesh Rajgure</p>
-                  <a href="tel:+919324873439">+91 9324873439</a>
+                  <a href="tel:+919324873439">+91 93248 73439</a>
                 </div>
               </div>
             </div>

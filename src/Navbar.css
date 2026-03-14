@@ -1,118 +1,201 @@
 /* ========================================
-   ROOT VARIABLES (Future Proof)
-   ======================================== */
+   ROOT VARIABLES
+======================================== */
 :root {
     --navbar-height: 80px;
-    --navbar-bg: rgba(0, 0, 0, 0.95);
+    --navbar-bg: rgba(0,0,0,0.95);
     --nav-accent: #00B5E2;
 }
 
 /* ========================================
-   NAVBAR CONTAINER
-   ======================================== */
-.navbar {
+   NAVBAR
+======================================== */
+.navbar{
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: var(--navbar-height);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 40px;
+    top:0;
+    left:0;
+    width:100%;
+    height:var(--navbar-height);
 
-    background: var(--navbar-bg);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
 
-    z-index: 10000;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
-    border-bottom: 1px solid #2a2e36;
+    padding:0 18px;
+
+    background:var(--navbar-bg);
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+
+    z-index:10000;
+    border-bottom:1px solid #2a2e36;
 }
 
 /* ========================================
-   LEFT SIDE (LOGO/TITLE)
-   ======================================== */
-.navbar-left {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+   LEFT LOGO
+======================================== */
+.navbar-left{
+    display:flex;
+    align-items:center;
+    height:100%;
 }
 
-.navbar-left h1 {
-    font-size: 1.1rem;
-    color: #FFFFFF;
-    margin: 0;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-}
-
-.navbar-left p {
-    font-size: 0.9rem;
-    color: var(--nav-accent);
-    margin: 0;
-    font-weight: 400;
+.navbar-logo{
+    height:52px;
+    object-fit:contain;
+    display:block;
 }
 
 /* ========================================
-   RIGHT SIDE (NAVIGATION LINKS)
-   ======================================== */
-.navbar-right ul {
-    list-style: none;
-    display: flex;
-    gap: 15px;
-    align-items: center;
-    margin: 0;
-    padding: 0;
+   RIGHT BLOCK
+======================================== */
+.navbar-right-block{
+    display:flex;
+    align-items:center;
+    height:100%;
+    gap:14px;
 }
 
-.nav-link {
+/* ========================================
+   DESKTOP NAV
+======================================== */
+.navbar-right ul{
+    list-style:none;
+    display:flex;
+    gap:14px;
+    align-items:center;
+    margin:0;
+    padding:0;
+}
+
+.nav-link{
+    padding:8px 16px;
+    font-size:14px;
+    border-radius:20px;
+    background:#1a181d;
+    border:1px solid #333;
+    color:#d6d6d6;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.nav-link,
+.mobile-link {
     text-decoration: none;
-    padding: 8px 18px;
-    font-size: 14px;
-    font-weight: 500;
-    color: #d6d6d6;
-    border-radius: 20px;
+    border: none;
+    outline: none;
     background: #1a181d;
-    border: 1px solid #333;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    white-space: nowrap;
-    cursor: pointer;
 }
 
-/* HOVER STATE */
-.nav-link:hover {
-    background: var(--nav-accent);
-    color: #0e0f14;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 181, 226, 0.3);
-    border-color: var(--nav-accent);
+/* remove mobile tap highlight */
+.nav-link,
+.mobile-link,
+.hamburger {
+    -webkit-tap-highlight-color: transparent;
 }
 
-/* ACTIVE STATE */
-.nav-link.active {
-    background: var(--nav-accent);
-    color: #0e0f14;
-    border-color: var(--nav-accent);
+/* remove focus underline */
+.nav-link:focus,
+.nav-link:active,
+.mobile-link:focus,
+.mobile-link:active {
+    outline: none;
+    box-shadow: none;
+}
+
+.nav-link:hover{
+    background:var(--nav-accent);
+    color:#0e0f14;
+}
+
+.nav-link.active{
+    background:var(--nav-accent);
+    color:#0e0f14;
 }
 
 /* ========================================
-   MOBILE ADAPTATION
-   ======================================== */
-@media (max-width: 768px) {
-    :root {
-        --navbar-height: 70px;
+   HAMBURGER
+======================================== */
+.hamburger{
+    display:none;
+    width:28px;
+    height:20px;
+
+    flex-direction:column;
+    justify-content:space-between;
+
+    cursor:pointer;
+}
+
+.hamburger span{
+    height:2px;
+    width:100%;
+    background:white;
+    transition:0.3s;
+}
+
+/* animation */
+.hamburger.active span:nth-child(1){
+    transform:rotate(45deg) translate(5px,5px);
+}
+.hamburger.active span:nth-child(2){
+    opacity:0;
+}
+.hamburger.active span:nth-child(3){
+    transform:rotate(-45deg) translate(5px,-5px);
+}
+
+/* ========================================
+   MOBILE PANEL
+======================================== */
+.mobile-menu{
+    position:fixed;
+    top:var(--navbar-height);
+    right:-100%;
+    width:75%;
+    height:calc(100vh - var(--navbar-height));
+
+    background:#0e0f14;
+
+    display:flex;
+    flex-direction:column;
+    padding:28px;
+    gap:18px;
+
+    transition:0.4s ease;
+    z-index:9999;
+}
+
+.mobile-menu.show{
+    right:0;
+}
+
+.mobile-link{
+    background:#1a181d;
+    border:1px solid #333;
+    padding:12px;
+    border-radius:10px;
+    color:#d6d6d6;
+    font-size:16px;
+    text-align:center;
+    cursor:pointer;
+}
+
+/* ========================================
+   MOBILE BREAKPOINT
+======================================== */
+@media(max-width:768px){
+
+    :root{
+        --navbar-height:70px;
     }
 
-    .navbar {
-        padding: 0 20px;
+    .navbar-right{
+        display:none;
     }
 
-    .navbar-left h1 {
-        font-size: 0.95rem;
+    .hamburger{
+        display:flex;
     }
 
-    .navbar-right {
-        display: none; /* For now (until hamburger menu is added) */
-    }
 }

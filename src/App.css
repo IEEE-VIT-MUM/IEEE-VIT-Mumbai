@@ -14,3 +14,25 @@ html, body {
 .main-content {
     padding-top: var(--navbar-height);
 }
+.hamburger{
+    display:none;
+    width:26px;
+    height:18px;
+    flex-direction:column;
+    justify-content:space-between;
+    cursor:pointer;
+}
+
+.hamburger span{
+    height:2px;
+    width:100%;
+    background:white;
+    display:block;
+}
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    -webkit-overflow-scrolling: touch;
+}

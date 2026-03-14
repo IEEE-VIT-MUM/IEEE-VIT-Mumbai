@@ -1,6 +1,6 @@
 /* ========================================
    CONTAINER AND OVERLAY
-   ======================================== */
+======================================== */
 .about-page-root {
     background-color: #0e0f14;
     min-height: 100vh;
@@ -18,8 +18,8 @@
 }
 
 /* ========================================
-   SECTIONS STYLING
-   ======================================== */
+   SECTIONS
+======================================== */
 .info-section {
     padding: 60px 10%;
     text-align: center;
@@ -28,7 +28,7 @@
 .info-section h2 {
     font-size: 2.8rem;
     color: #00B5E2;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
     text-transform: uppercase;
 }
 
@@ -36,74 +36,113 @@
     color: #9fa6b2;
     line-height: 1.8;
     font-size: 1.15rem;
-    text-align: center;
     max-width: 900px;
     margin: 0 auto;
 }
 
 /* ========================================
-   HORIZONTAL TIMELINE (150px Nodes)
-   ======================================== */
+   ⭐ HORIZONTAL TIMELINE (FINAL STABLE)
+======================================== */
+
 .horizontal-timeline-container {
+
     width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    display: block;
+
     padding: 60px 0;
-    display: flex;
-    justify-content: center;
+
+    -webkit-overflow-scrolling: touch;
 }
 
 .horizontal-timeline-track {
+
     display: flex;
-    align-items: flex-start;
-    position: relative;
-    gap: 100px;
+    align-items: center;
+
+    gap: 80px;
+
+    width: max-content;
+
+    padding: 0 80px;        /* ⭐ CRITICAL → edge breathing space */
+
+    margin: 0 auto;
 }
 
 .h-timeline-item {
+
+    position: relative;
+
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: relative;
-    z-index: 5;
+
+    flex-shrink: 0;
 }
 
+/* ⭐ NODE */
+
 .v-node {
+
     width: 150px;
     height: 150px;
-    background: #16181d; /* Solid background to prevent lag */
-    border: 2px solid #00B5E2;
+
     border-radius: 50%;
+    border: 2px solid #00B5E2;
+
+    background: #16181d;
+
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+
+    padding: 18px;
 }
 
 .v-node img {
-    max-width: 100%;
-    max-height: 100%;
+    width: 100%;
+    height: 100%;
     object-fit: contain;
 }
 
+/* ⭐ CONNECTOR (perfect center math) */
+
 .h-line-path {
+
     position: absolute;
-    left: 150px;
-    top: 75px; /* Centered for 150px node */
-    width: 100px;
+
+    left: 100%;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 80px;
     height: 2px;
+
     background: #00B5E2;
 }
 
+/* LABEL */
+
 .v-label {
-    margin-top: 20px;
-    color: #9fa6b2;
+    margin-top: 18px;
     font-size: 1rem;
+    color: #9fa6b2;
     font-weight: 600;
-    text-transform: uppercase;
+}
+
+/* ⭐ IEEE VIT LOGO BOOST */
+
+.vit-logo {
+    transform: scale(1.35);
 }
 
 /* ========================================
    SOCIETIES GRID
-   ======================================== */
+======================================== */
+
 .societies-grid {
     display: flex;
     justify-content: center;
@@ -113,7 +152,7 @@
 }
 
 .society-card {
-    background: #16181d; /* Removed transparency and blur */
+    background: #16181d;
     border: 1px solid #2a2e36;
     border-radius: 20px;
     width: 350px;
@@ -121,7 +160,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    transition: transform 0.3s ease;
+    transition: 0.3s;
+}
+
+.society-card:hover {
+    transform: translateY(-6px);
 }
 
 .society-img-wrap {
@@ -136,28 +179,50 @@
     object-fit: contain;
 }
 
-.society-text h3 { color: #00B5E2; margin-bottom: 10px; }
-.society-text p { color: #9fa6b2; font-size: 0.95rem; }
+.society-text h3 {
+    color: #00B5E2;
+    margin-bottom: 10px;
+}
+
+.society-text p {
+    color: #9fa6b2;
+    font-size: 0.95rem;
+}
 
 /* ========================================
-   ANIMATIONS (LIGHTWEIGHT)
-   ======================================== */
-.wobbly-box {
-    transition: transform 0.3s ease-out;
-}
-
-.wobbly-box:hover {
-    transform: scale(1.03); /* Simple scale is faster than complex rotate animations */
-    border-color: #00B5E2;
-}
+   FADE ANIMATION
+======================================== */
 
 .section-fade {
     opacity: 0;
     transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    transition: 0.6s;
 }
 
 .section-fade.active {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* ========================================
+   ⭐ MOBILE PERFECT MODE
+======================================== */
+
+@media (max-width:768px){
+
+    .horizontal-timeline-track{
+
+        gap: 60px;
+        padding: 0 40px;
+    }
+
+    .v-node{
+        width:120px;
+        height:120px;
+    }
+
+    .h-line-path{
+        width:60px;
+    }
+
 }

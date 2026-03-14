@@ -25,6 +25,10 @@ export default function ConvenorSection() {
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFading, setIsFading] = useState(false);
+
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
+
   const AUTOPLAY_MS = 5000;
 
   // Function to change slides with a fade-out/fade-in effect
@@ -38,6 +42,27 @@ export default function ConvenorSection() {
     }, 400); // This delay should match your CSS transition time
   };
 
+const handleTouchStart = (e) => {
+  touchStartX.current = e.changedTouches[0].screenX;
+};
+
+const handleTouchEnd = (e) => {
+  touchEndX.current = e.changedTouches[0].screenX;
+  handleSwipe();
+};
+
+const handleSwipe = () => {
+  const diff = touchStartX.current - touchEndX.current;
+
+  if (Math.abs(diff) < 50) return;
+
+  if (diff > 0) {
+    changeSlide(currentIndex + 1);
+  } else {
+    changeSlide(currentIndex - 1);
+  }
+};
+
   useEffect(() => {
     const timer = setInterval(() => {
       changeSlide(currentIndex + 1);
@@ -49,7 +74,7 @@ export default function ConvenorSection() {
 
   return (
     <section className="banner-container">
-      <div className="banner">
+      <div className="banner" onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
         {/* Background Layer */}
         <div className="banner__bg">
           <img src={bannerImg} alt="VIT Background" />

@@ -1,5 +1,5 @@
 .hero {
-  height: calc(100vh - var(--navbar-height));
+  min-height: 100vh;
   width: 100%;
   position: relative;
   display: flex;
@@ -27,11 +27,12 @@ canvas {
    TYPEWRITER TEXT
 ================================ */
 .typewriter {
-  font-size: 70px;
+  font-size: clamp(34px, 7vw, 70px);
   font-weight: 700;
-  color: #ffffff;          /* WHITE TEXT */
-  letter-spacing: 2px;
+  color: #ffffff;
+  letter-spacing: 1px;
   margin: 0;
+  line-height: 1.15;
 }
 
 /* Cursor */
@@ -49,10 +50,10 @@ canvas {
 
 /* Subtitle */
 .subtitle {
-  margin-top: 12px;
-  font-size: 25px;
+  margin-top: 14px;
+  font-size: clamp(18px, 4.5vw, 25px);
   color: #00B5E2;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
 }
 
 /* Responsive */

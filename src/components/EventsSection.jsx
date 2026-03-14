@@ -122,16 +122,16 @@ const eventsData = [
     registerLink: "#",
     infoLink: "#",
   },
-  {
-    id: 13,
-    title: "Hardware Hackathon",
-    date: "2026-03-14",
-    venue: "VIT Campus",
-    tag: "Hybrid 6+2 Hardware Hackathon",
-    poster: "/events/Hardware_Hackathon.jpg",
-    registerLink: "#",
-    infoLink: "#",
-  },
+  // {
+  //   id: 13,
+  //   title: "Hardware Hackathon",
+  //   date: "2026-03-14",
+  //   venue: "VIT Campus",
+  //   tag: "Hybrid 6+2 Hardware Hackathon",
+  //   poster: "/events/Hardware_Hackathon.jpg",
+  //   registerLink: "#",
+  //   infoLink: "#",
+  // },
 ];
 
 const FILTERS = ["Upcoming", "Past", "All"];
