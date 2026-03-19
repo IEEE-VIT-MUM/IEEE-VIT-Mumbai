@@ -68,14 +68,14 @@ export const headsData = [
     {
         name: "Tanvi Yerram",
         position: "Event Head",
-        image: "/TEAM/tanvi_yerram.jpg",
+        image: "/Team/Tanvi_Yerram.jpg",
         linkedin: "https://in.linkedin.com/in/tanvi-yerram",
         github: "https://github.com/tanviyerram08"
     },
     {
         name: "Maitry Mohite",
         position: "Digital Media & Public Branding",
-        image: "/TEAM/maitry_mohite.jpg",
+        image: "/Team/Maitry_Mohite.JPG",
         linkedin: "https://www.linkedin.com/in/maitry-mohite",
         github: "https://github.com/maitry-mohite"
     },
