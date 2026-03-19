@@ -84,24 +84,7 @@ const AboutPage = () => {
         };
     }, [vantaEffect]);
 
-    useEffect(() => {
-
-    const track = document.querySelector(".horizontal-timeline-container");
-
-    if (!track) return;
-
-    const id = setInterval(() => {
-
-        track.scrollBy({
-            left: 220,
-            behavior: "smooth"
-        });
-
-    }, 4000);
-
-    return () => clearInterval(id);
-
-    }, []);
+    
 
     return (
         <div className="about-page-root " ref={vantaRef}>

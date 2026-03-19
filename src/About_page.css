@@ -45,30 +45,17 @@
 ======================================== */
 
 .horizontal-timeline-container {
-
+    overflow-x: visible; 
+    display: flex;
+    justify-content: center;
     width: 100%;
-    overflow-x: auto;
-    overflow-y: hidden;
-
-    display: block;
-
-    padding: 60px 0;
-
-    -webkit-overflow-scrolling: touch;
 }
 
 .horizontal-timeline-track {
-
     display: flex;
-    align-items: center;
-
-    gap: 80px;
-
-    width: max-content;
-
-    padding: 0 80px;        /* ⭐ CRITICAL → edge breathing space */
-
-    margin: 0 auto;
+    flex-wrap: wrap; 
+    justify-content: center;
+    gap: 100px;
 }
 
 .h-timeline-item {
@@ -107,8 +94,6 @@
     object-fit: contain;
 }
 
-/* ⭐ CONNECTOR (perfect center math) */
-
 .h-line-path {
 
     position: absolute;
@@ -118,13 +103,11 @@
 
     transform: translateY(-50%);
 
-    width: 80px;
+    width: 100px;
     height: 2px;
 
     background: #00B5E2;
 }
-
-/* LABEL */
 
 .v-label {
     margin-top: 18px;
@@ -132,8 +115,6 @@
     color: #9fa6b2;
     font-weight: 600;
 }
-
-/* ⭐ IEEE VIT LOGO BOOST */
 
 .vit-logo {
     transform: scale(1.35);

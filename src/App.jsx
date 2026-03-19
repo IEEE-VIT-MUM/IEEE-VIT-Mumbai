@@ -2,9 +2,10 @@ import './App.css'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar.jsx';
 import Footer from './components/Footer.jsx';
-import AboutPage from './components/About_page';
-import TeamPage from './components/TeamSection.jsx';
 import ScrollToTop from "./components/ScrollToTop";
+
+import TeamPage from './components/TeamSection.jsx';
+import AboutPage from './components/About_page';
 import Home from './components/Home.jsx'; 
 
 function App() {

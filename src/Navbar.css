@@ -1,201 +1,165 @@
 /* ========================================
-   ROOT VARIABLES
+   NAVBAR CONTAINER
 ======================================== */
-:root {
-    --navbar-height: 80px;
-    --navbar-bg: rgba(0,0,0,0.95);
-    --nav-accent: #00B5E2;
-}
-
-/* ========================================
-   NAVBAR
-======================================== */
-.navbar{
+.navbar {
     position: fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:var(--navbar-height);
-
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-
-    padding:0 18px;
-
-    background:var(--navbar-bg);
-    backdrop-filter:blur(10px);
-    -webkit-backdrop-filter:blur(10px);
-
-    z-index:10000;
-    border-bottom:1px solid #2a2e36;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px; /* Fixed height */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    
+    /* Sheer Dark Glass Effect */
+    background: rgba(10, 10, 15, 0.7);
+    backdrop-filter: blur(15px) saturate(180%);
+    -webkit-backdrop-filter: blur(15px) saturate(180%);
+    
+    z-index: 10000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 /* ========================================
-   LEFT LOGO
+   LOGO
 ======================================== */
-.navbar-left{
-    display:flex;
-    align-items:center;
-    height:100%;
-}
-
-.navbar-logo{
-    height:52px;
-    object-fit:contain;
-    display:block;
+.navbar-logo {
+    height: 30px;
 }
 
 /* ========================================
-   RIGHT BLOCK
+   DESKTOP NAVIGATION
 ======================================== */
-.navbar-right-block{
-    display:flex;
-    align-items:center;
-    height:100%;
-    gap:14px;
+.navbar-right ul {
+    list-style: none;
+    display: flex;
+    gap: 12px;
+    margin: 0;
+    padding: 0;
+    align-items: center;
 }
 
-/* ========================================
-   DESKTOP NAV
-======================================== */
-.navbar-right ul{
-    list-style:none;
-    display:flex;
-    gap:14px;
-    align-items:center;
-    margin:0;
-    padding:0;
-}
-
-.nav-link{
-    padding:8px 16px;
-    font-size:14px;
-    border-radius:20px;
-    background:#1a181d;
-    border:1px solid #333;
-    color:#d6d6d6;
-    cursor:pointer;
-    transition:0.3s;
-}
-
-.nav-link,
-.mobile-link {
+/* Glassy Links & Buttons */
+.nav-link {
+    padding: 10px 22px;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: inherit; /* Ensures buttons use site font */
+    color: rgba(255, 255, 255, 0.8);
     text-decoration: none;
-    border: none;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 50px; /* High curvature pill shape */
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    display: inline-block;
     outline: none;
-    background: #1a181d;
 }
 
-/* remove mobile tap highlight */
-.nav-link,
-.mobile-link,
+/* --- THE GLASS WINDOW HOVER EFFECT --- */
+.nav-link:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(8px);
+    
+    /* Depth and Glow */
+    box-shadow: 
+        0 8px 32px 0 rgba(0, 0, 0, 0.37), 
+        inset 0 0 10px rgba(255, 255, 255, 0.1);
+    
+    transform: translateY(-2px);
+}
+
+/* Active State (Blue Accent) */
+.nav-link.active {
+    background: #00B5E2;
+    color: #000000;
+    font-weight: 600;
+    border-color: #00B5E2;
+    box-shadow: 0 0 20px rgba(0, 181, 226, 0.4);
+}
+
+/* ========================================
+   MOBILE & HAMBURGER
+======================================== */
 .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 5px;
     -webkit-tap-highlight-color: transparent;
 }
 
-/* remove focus underline */
-.nav-link:focus,
-.nav-link:active,
-.mobile-link:focus,
-.mobile-link:active {
-    outline: none;
-    box-shadow: none;
+.hamburger span {
+    width: 25px;
+    height: 2px;
+    background: white;
+    transition: 0.3s;
+    border-radius: 2px;
 }
 
-.nav-link:hover{
-    background:var(--nav-accent);
-    color:#0e0f14;
+/* Hamburger Animation */
+.hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+.mobile-menu {
+    position: fixed;
+    top: 80px; /* Matches navbar height */
+    right: -100%;
+    width: 280px;
+    height: auto;
+    background: rgba(10, 10, 15, 0.95);
+    backdrop-filter: blur(20px);
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    gap: 15px;
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 9999;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom-left-radius: 20px;
 }
 
-.nav-link.active{
-    background:var(--nav-accent);
-    color:#0e0f14;
+.mobile-menu.show {
+    right: 0;
 }
 
-/* ========================================
-   HAMBURGER
-======================================== */
-.hamburger{
-    display:none;
-    width:28px;
-    height:20px;
-
-    flex-direction:column;
-    justify-content:space-between;
-
-    cursor:pointer;
-}
-
-.hamburger span{
-    height:2px;
-    width:100%;
-    background:white;
-    transition:0.3s;
-}
-
-/* animation */
-.hamburger.active span:nth-child(1){
-    transform:rotate(45deg) translate(5px,5px);
-}
-.hamburger.active span:nth-child(2){
-    opacity:0;
-}
-.hamburger.active span:nth-child(3){
-    transform:rotate(-45deg) translate(5px,-5px);
-}
-
-/* ========================================
-   MOBILE PANEL
-======================================== */
-.mobile-menu{
-    position:fixed;
-    top:var(--navbar-height);
-    right:-100%;
-    width:75%;
-    height:calc(100vh - var(--navbar-height));
-
-    background:#0e0f14;
-
-    display:flex;
-    flex-direction:column;
-    padding:28px;
-    gap:18px;
-
-    transition:0.4s ease;
-    z-index:9999;
-}
-
-.mobile-menu.show{
-    right:0;
-}
-
-.mobile-link{
-    background:#1a181d;
-    border:1px solid #333;
-    padding:12px;
-    border-radius:10px;
-    color:#d6d6d6;
-    font-size:16px;
-    text-align:center;
-    cursor:pointer;
+.mobile-link {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: white;
+    padding: 15px;
+    border-radius: 15px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
 /* ========================================
-   MOBILE BREAKPOINT
+   RESPONSIVE BREAKPOINT
 ======================================== */
-@media(max-width:768px){
-
-    :root{
-        --navbar-height:70px;
+@media (max-width: 768px) {
+    .navbar {
+        height: 70px;
+        padding: 0 20px;
     }
 
-    .navbar-right{
-        display:none;
+    .navbar-right {
+        display: none;
     }
 
-    .hamburger{
-        display:flex;
+    .hamburger {
+        display: flex;
     }
 
+    .mobile-menu {
+        top: 70px;
+    }
 }

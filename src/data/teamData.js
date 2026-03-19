@@ -28,11 +28,11 @@ export const excomData = [
         github: "#"
     },
     {
-        name: "Shubham Ralkar",
+        name: "Siddhi Lad",
         position: "Treasurer",
-        image: "https://ui-avatars.com/api/?name=Shubham+Ralkar&background=00629B&color=fff&size=128",
-        linkedin: "https://www.linkedin.com/in/shubham-ralkar-83ba90253/",
-        github: "https://github.com/ShubhamRalkar"
+        image: "https://ui-avatars.com/api/?name=Siddhi+Lad&background=003B5C&color=fff&size=128",
+        linkedin: "https://www.linkedin.com/in/lad-siddhi/",
+        github: "https://github.com/siddhivlad"
     }
 ];
 
@@ -59,25 +59,11 @@ export const headsData = [
         github: "https://github.com/Meet3724"
     },
     {
-        name: "Shamail Pawar",
-        position: "Joint Technical Head (Hardware)",
-        image: "https://ui-avatars.com/api/?name=Shamail+Pawar&background=003B5C&color=fff&size=128",
-        linkedin: "#",
-        github: "#"
-    },
-    {
         name: "Manali Kulkarni",
         position: "Creative Head",
         image: "https://ui-avatars.com/api/?name=Manali+Kulkarni&background=003B5C&color=fff&size=128",
         linkedin: "https://www.linkedin.com/in/manali-kulkarni-04701a286?utm_source=share_via&utm_content=profile&utm_medium=member_android",
         github: "https://github.com/ManaliK-123"
-    },
-    {
-        name: "Nikunj Pandey",
-        position: "Event Head",
-        image: "https://ui-avatars.com/api/?name=Nikunj+Pandey&background=003B5C&color=fff&size=128",
-        linkedin: "#",
-        github: "#"
     },
     {
         name: "Tanvi Yerram",
@@ -94,11 +80,18 @@ export const headsData = [
         github: "https://github.com/maitry-mohite"
     },
     {
-        name: "Siddhi Lad",
+        name: "Shubham Ralkar",
         position: "Publicity Head",
-        image: "https://ui-avatars.com/api/?name=Siddhi+Lad&background=003B5C&color=fff&size=128",
-        linkedin: "https://www.linkedin.com/in/lad-siddhi/",
-        github: "https://github.com/siddhivlad"
+        image: "https://ui-avatars.com/api/?name=Shubham+Ralkar&background=00629B&color=fff&size=128",
+        linkedin: "https://www.linkedin.com/in/shubham-ralkar-83ba90253/",
+        github: "https://github.com/ShubhamRalkar"
+    },
+    {
+        name: "Shreyas Labde",
+        position: "Publicity Co-Head",
+        image: "https://ui-avatars.com/api/?name=Shreyas+Labde&background=003B5C&color=fff&size=128",
+        linkedin: "https://www.linkedin.com/in/shreyas-labde40?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+        github: "https://github.com/ShreyasLabde"
     },
     {
         name: "Raj Mali",
@@ -106,13 +99,6 @@ export const headsData = [
         image: "https://ui-avatars.com/api/?name=Raj+Mali&background=003B5C&color=fff&size=128",
         linkedin: "https://www.linkedin.com/in/raj-mali",
         github: "https://github.com/Rajmali-22"
-    },
-    {
-        name: "Shreyas Labde",
-        position: "Documentation Head",
-        image: "https://ui-avatars.com/api/?name=Shreyas+Labde&background=003B5C&color=fff&size=128",
-        linkedin: "https://www.linkedin.com/in/shreyas-labde40?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-        github: "https://github.com/ShreyasLabde"
     },
     {
         name: "Yashraj Patil",
