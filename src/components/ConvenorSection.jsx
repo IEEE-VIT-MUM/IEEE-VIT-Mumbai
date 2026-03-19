@@ -10,14 +10,14 @@ export default function ConvenorSection() {
     {
       id: 1,
       name: "Prof. Javed Patel",
-      title: "Assistant Professor – VIT",
-      quote: "I believe in teaching with real-world examples and inspiring students to think like engineers. I guide students not only to learn, but to apply knowledge through projects.",
+      title: "Assistant Professor - VIT",
+      quote: "I believe in teaching with real world examples and inspiring students to think like engineers. I guide students not only to learn, but to apply knowledge through projects.",
       image: javedImg,
     },
     {
       id: 2,
       name: "Dr. Saurabh Mehta",
-      title: "Professor & Chief Academic Officer – VIT",
+      title: "Professor & Chief Academic Officer - VIT",
       quote: "As a academic leader, I motivate students to think beyond the classroom and turn ideas into real technology with over 15 years of research experience.",
       image: saurabhImg,
     },

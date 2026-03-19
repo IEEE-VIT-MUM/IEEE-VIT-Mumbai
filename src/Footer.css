@@ -718,28 +718,6 @@ body {
 
 /* Tablet */
 @media (max-width: 1024px) {
-    .navbar {
-        height: 90px;
-        padding: 0 30px;
-    }
-
-    .navbar-logo {
-        height: 65px;
-        max-width: 240px;
-    }
-
-    .navbar-right ul {
-        gap: 20px;
-    }
-
-    .nav-link {
-        padding: 8px 14px;
-        font-size: 14px;
-    }
-
-    .main-content {
-        margin-top: 90px;
-    }
 
     .footer-container-new {
         grid-template-columns: 1fr 1fr;
@@ -769,50 +747,19 @@ body {
     }
 }
 
-/* Mobile */
+/* ==================== MOBILE ==================== */
 @media (max-width: 768px) {
-    .navbar {
-        padding: 12px 20px;
-        height: auto;
-        min-height: 110px;
-        flex-direction: column;
-        align-items: flex-start;
-    }
 
-    .navbar-left {
-        margin-bottom: 14px;
-        margin-right: 0;
-    }
-
-    .navbar-logo {
-        height: 85px;
-        filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.85));
-    }
-
-    .navbar-right ul {
-        gap: 12px;
-        flex-wrap: wrap;
-        justify-content: center;
-        width: 100%;
-    }
-
-    .nav-link {
-        padding: 6px 12px;
-        font-size: 13px;
-    }
-
-    .main-content {
-        margin-top: 140px;
-    }
-
+    /* --- Newsletter --- */
     .newsletter-section {
-        padding: 40px 20px;
+        padding: 36px 20px 44px;
     }
 
     .newsletter-container {
         flex-direction: column;
+        align-items: center;
         text-align: center;
-        gap: 30px;
+        gap: 24px;
     }
 
     .newsletter-content {
@@ -820,44 +767,61 @@ body {
     }
 
     .newsletter-title {
-        font-size: 28px;
+        font-size: 24px;
+        line-height: 1.3;
+    }
+
+    .newsletter-subtitle {
+        font-size: 14px;
     }
 
     .newsletter-form {
         flex-direction: column;
-        max-width: 100%;
-        min-width: auto;
         width: 100%;
+        min-width: unset;
+        max-width: 100%;
+        gap: 10px;
     }
 
     .newsletter-input,
     .newsletter-btn {
         width: 100%;
+        border-radius: 10px;
     }
 
     .privacy-text {
         position: static;
-        margin-top: 15px;
+        margin-top: 10px;
         text-align: center;
+        white-space: normal;
     }
 
+    /* --- Footer Main --- */
     .footer-main {
-        padding: 40px 20px 30px;
+        padding: 36px 20px 28px;
     }
 
     .footer-container-new {
         grid-template-columns: 1fr;
-        gap: 35px;
+        gap: 0;
     }
 
-    .contact-col,
-    .map-col {
-        grid-column: auto;
-        align-items: center;
+    /* Subtle divider between stacked sections */
+    .footer-col + .footer-col {
+        border-top: 1px solid rgba(255, 255, 255, 0.07);
+        padding-top: 32px;
+        margin-top: 8px;
     }
 
     .footer-col {
         align-items: center;
+        text-align: center;
+    }
+
+    /* --- Brand Column --- */
+    .brand-col {
+        align-items: center;
+        padding-bottom: 8px;
     }
 
     .brand-header {
@@ -865,11 +829,62 @@ body {
         align-items: center;
     }
 
+    /* Shrink logo — was 280px, too big on mobile */
+    .ieee-logo-wrapper {
+        width: 160px;
+    }
+
+    .vit-logo {
+        width: 160px;
+    }
+
     .brand-description {
+        font-size: 13px;
+        font-weight: 600;
+        color: rgba(255,255,255,0.7);
+        width: auto;
+        margin: 6px 0 20px;
         text-align: center;
     }
 
+    .social-section {
+        margin-bottom: 20px;
+        width: 100%;
+    }
+
+    .social-icons {
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .social-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 15px;
+    }
+
+    /* Join button full width */
+    .cta-button-row {
+        justify-content: center;
+        width: 100%;
+        margin-top: 4px;
+    }
+
+    .cta-button-row .cta-btn,
+    .cta-button-row .join-ieee-btn {
+        width: 100%;
+        max-width: 100%;
+        min-width: unset;
+        justify-content: center;
+    }
+
+    /* --- Contact Column --- */
+    .contact-col {
+        align-items: stretch;
+    }
+
     .section-heading {
+        text-align: center;
         margin-left: auto;
         margin-right: auto;
     }
@@ -879,92 +894,109 @@ body {
         transform: translateX(-50%);
     }
 
-    .map-col .section-heading::after,
-    .contact-col .section-heading::after {
-        left: 50%;
-        transform: translateX(-50%);
+    .contact-items {
+        gap: 10px;
+        width: 100%;
+    }
+
+    /* Card stretches full width, content left-aligned inside */
+    .contact-item {
+        width: 100%;
+        align-items: center;  /* vertically center icon with text */
+        gap: 14px;
+    }
+
+    .contact-item:hover {
+        transform: none;
+    }
+
+    .contact-details {
+        flex: 1;             /* takes remaining width after icon */
+        text-align: left;    /* always left-align text inside card */
+        gap: 3px;
+    }
+
+    .contact-details h4 {
+        font-size: 10px;
+        letter-spacing: 0.8px;
+        color: var(--ieee-gray);
+    }
+
+    .contact-details a {
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--ieee-white);
+    }
+
+    .person-name {
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--ieee-white);
+        margin: 0;
+    }
+
+    /* --- Map Column --- */
+    .map-col {
+        align-items: stretch;
     }
 
     .college-name-map-link {
         text-align: center;
+        font-size: 13px;
+    }
+
+    .map-container iframe {
+        height: 200px;
     }
 
     .map-directions-link {
-        max-width: 450px;
-        margin-left: auto;
-        margin-right: auto;
+        width: 100%;
+        max-width: 100%;
+        margin-top: 14px;
+        justify-content: center;
+    }
+
+    /* --- Footer Bottom --- */
+    .footer-bottom {
+        padding: 20px 20px;
     }
 
     .footer-bottom-container {
         flex-direction: column;
+        align-items: center;
         text-align: center;
+        gap: 6px;
     }
 
-    .social-icons {
-        justify-content: center;
-    }
-
-    .brand-col .join-ieee-btn,
-    .contact-query-form {
-        max-width: 90%;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    /* Ensure the button row is centered in mobile view */
-    .cta-button-row {
-        max-width: 90%;
-        margin-left: auto;
-        margin-right: auto;
+    .copyright-section p,
+    .single-sentence-footer p {
+        font-size: 12px;
     }
 }
 
-/* Small Mobile */
-@media (max-width: 520px) {
-    .navbar {
-        padding: 10px 16px;
-        min-height: 105px;
-    }
-
-    .navbar-logo {
-        height: 55px;
-        max-width: 200px;
-    }
-
-    .navbar-right ul {
-        gap: 8px;
-    }
-
-    .nav-link {
-        padding: 6px 10px;
-        font-size: 12px;
-    }
+/* ==================== SMALL MOBILE (<=400px) ==================== */
+@media (max-width: 400px) {
 
     .newsletter-title {
-        font-size: 24px;
+        font-size: 21px;
     }
 
-    .newsletter-btn {
-        padding: 14px 28px;
-    }
-
-    .footer-main {
-        padding: 35px 15px 20px;
+    .ieee-logo-wrapper,
+    .vit-logo {
+        width: 130px;
     }
 
     .social-icon {
         width: 36px;
         height: 36px;
-        font-size: 15px;
+        font-size: 14px;
     }
 
-    .footer-bottom {
-        padding: 20px 15px;
+    .footer-main {
+        padding: 30px 14px 24px;
     }
 
-    /* Force buttons to stack on very small screens */
-    .cta-button-row {
-        flex-direction: column;
-        gap: 8px;
+    .contact-item {
+        padding: 10px 12px;
     }
 }

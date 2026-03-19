@@ -76,39 +76,44 @@ export default function Navbar() {
 
   return (
     <header className="navbar">
-      <div className="navbar-left">
-        <Link to="/" onClick={() => window.scrollTo({ top: 0 })}>
-          <img src={whiteVitLogo} alt="IEEE VIT Logo" className="navbar-logo" />
-        </Link>
-      </div>
-
-      <div className="navbar-right-block">
+      <div className="navbar-container">
+        {/* Mobile Hamburger (Professional Alignment) */}
         <div className={`hamburger ${menuOpen ? "active" : ""}`} onClick={toggleMenu}>
           <span></span><span></span><span></span>
         </div>
 
-        <nav className="navbar-right">
+        {/* Logo - Sizes down automatically via CSS */}
+        <div className="navbar-logo-wrapper">
+          <Link to="/" onClick={() => { window.scrollTo({ top: 0 }); closeMenu(); }}>
+            <img src={whiteVitLogo} alt="IEEE VIT Logo" className="navbar-logo" />
+          </Link>
+        </div>
+
+        {/* Desktop-only Navigation (Issue 2 Fix) */}
+        <nav className="navbar-desktop">
           <ul>
-            <li><Link to="/" className="nav-link" onClick={() => { window.scrollTo({ top: 0, behavior: "smooth" }); closeMenu(); }}>Home</Link></li>
-            <li><Link to="/about" className="nav-link" onClick={closeMenu}>About Us</Link></li>
-            <li><Link to="/team" className="nav-link" onClick={closeMenu}>Our Team</Link></li>
-            <li>
-              {/* Changed from <button> to <Link> */}
-              <Link to="/#events" className="nav-link" onClick={handleEventsClick}>
-                Events
-              </Link>
-            </li>
-            <li><a href="https://www.ieee.org/membership/join/index.html" target="_blank" rel="noopener noreferrer" className="nav-link" onClick={closeMenu}>Join IEEE</a></li>
+            <li><Link to="/" className="nav-link">Home</Link></li>
+            <li><Link to="/about" className="nav-link">About Us</Link></li>
+            <li><Link to="/team" className="nav-link">Our Team</Link></li>
+            <li><Link to="/#events" className="nav-link" onClick={handleEventsClick}>Events</Link></li>
+            <li><a href="https://www.ieee.org/membership/join/index.html" target="_blank" rel="noopener noreferrer" className="nav-link">Join IEEE</a></li>
           </ul>
         </nav>
       </div>
 
-      <nav className={`mobile-menu ${menuOpen ? "show" : ""}`}>
-        <button className="mobile-link" onClick={() => { closeMenu(); navigate("/"); window.scrollTo({ top: 0, behavior: "smooth" }); }}>Home</button>
-        <button className="mobile-link" onClick={() => { closeMenu(); navigate("/about"); }}>About Us</button>
-        <button className="mobile-link" onClick={() => { closeMenu(); navigate("/team"); }}>Our Team</button>
-        <button className="mobile-link" onClick={handleEventsClick}>Events</button>
+      {/* Sidebar - Slides from LEFT (Issue 1 Fix) */}
+      <nav className={`mobile-sidebar ${menuOpen ? "show" : ""}`}>
+        <div className="sidebar-content">
+          <button className="mobile-link" onClick={() => { closeMenu(); navigate("/"); window.scrollTo({ top: 0 }); }}>Home</button>
+          <button className="mobile-link" onClick={() => { closeMenu(); navigate("/about"); }}>About Us</button>
+          <button className="mobile-link" onClick={() => { closeMenu(); navigate("/team"); }}>Our Team</button>
+          <button className="mobile-link" onClick={handleEventsClick}>Events</button>
+          <a href="https://www.ieee.org/membership/join/index.html" target="_blank" rel="noopener noreferrer" className="mobile-link" onClick={closeMenu}>Join IEEE</a>
+        </div>
       </nav>
+      
+      {/* Background Dimming Overlay */}
+      {menuOpen && <div className="menu-overlay" onClick={closeMenu}></div>}
     </header>
   );
 }

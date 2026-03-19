@@ -1,165 +1,184 @@
 /* ========================================
-   NAVBAR CONTAINER
+   MAIN NAVBAR (Laptop View)
 ======================================== */
 .navbar {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 80px; /* Fixed height */
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 40px;
-    
-    /* Sheer Dark Glass Effect */
+    height: 80px;
     background: rgba(10, 10, 15, 0.7);
     backdrop-filter: blur(15px) saturate(180%);
     -webkit-backdrop-filter: blur(15px) saturate(180%);
-    
-    z-index: 10000;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-}
-
-/* ========================================
-   LOGO
-======================================== */
-.navbar-logo {
-    height: 30px;
-}
-
-/* ========================================
-   DESKTOP NAVIGATION
-======================================== */
-.navbar-right ul {
-    list-style: none;
     display: flex;
-    gap: 12px;
-    margin: 0;
-    padding: 0;
+    align-items: center;
+    z-index: 10000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navbar-container {
+    width: 100%;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
 }
 
-/* Glassy Links & Buttons */
+/* Logo Styling */
+.navbar-logo {
+    height: 40px;
+    width: auto;
+    object-fit: contain;   /* ← add this */
+    display: block;
+}
+
+/* Desktop Menu */
+.navbar-desktop ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
 .nav-link {
-    padding: 10px 22px;
-    font-size: 14px;
-    font-weight: 500;
-    font-family: inherit; /* Ensures buttons use site font */
-    color: rgba(255, 255, 255, 0.8);
-    text-decoration: none;
-    background: transparent;
-    border: 1px solid transparent;
-    border-radius: 50px; /* High curvature pill shape */
-    cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-    display: inline-block;
-    outline: none;
-}
-
-/* --- THE GLASS WINDOW HOVER EFFECT --- */
-.nav-link:hover {
     color: #ffffff;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    backdrop-filter: blur(8px);
-    
-    /* Depth and Glow */
-    box-shadow: 
-        0 8px 32px 0 rgba(0, 0, 0, 0.37), 
-        inset 0 0 10px rgba(255, 255, 255, 0.1);
-    
-    transform: translateY(-2px);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.3s ease;
 }
 
-/* Active State (Blue Accent) */
-.nav-link.active {
-    background: #00B5E2;
-    color: #000000;
-    font-weight: 600;
-    border-color: #00B5E2;
-    box-shadow: 0 0 20px rgba(0, 181, 226, 0.4);
+.nav-link:hover {
+    color: #00B5E2;
 }
 
 /* ========================================
-   MOBILE & HAMBURGER
+   MOBILE TRIGGER (Hamburger)
 ======================================== */
 .hamburger {
     display: none;
     flex-direction: column;
-    gap: 5px;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
     cursor: pointer;
-    padding: 5px;
-    -webkit-tap-highlight-color: transparent;
+    z-index: 10001;
 }
 
 .hamburger span {
-    width: 25px;
+    display: block;
+    width: 100%;
     height: 2px;
-    background: white;
-    transition: 0.3s;
-    border-radius: 2px;
+    background-color: #ffffff;
+    transition: all 0.3s ease;
 }
 
-/* Hamburger Animation */
-.hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+/* Hamburger Animation to 'X' */
+.hamburger.active span:nth-child(1) { transform: translateY(9.5px) rotate(45deg); }
 .hamburger.active span:nth-child(2) { opacity: 0; }
-.hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+.hamburger.active span:nth-child(3) { transform: translateY(-9.5px) rotate(-45deg); }
 
-.mobile-menu {
+/* ========================================
+   LEFT SIDEBAR (Mobile Only)
+======================================== */
+.mobile-sidebar {
     position: fixed;
-    top: 80px; /* Matches navbar height */
-    right: -100%;
+    top: 0;
+    left: -100%;
     width: 280px;
-    height: auto;
+    height: 100vh;
     background: rgba(10, 10, 15, 0.95);
     backdrop-filter: blur(20px);
     display: flex;
     flex-direction: column;
-    padding: 30px;
-    gap: 15px;
-    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    padding: 100px 25px 40px 25px;
+    transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 9999;
-    border-left: 1px solid rgba(255, 255, 255, 0.1);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    border-bottom-left-radius: 20px;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.mobile-menu.show {
-    right: 0;
+.mobile-sidebar.show {
+    left: 0;
 }
 
+/* ✅ FIX: sidebar-content stacks links vertically, full width */
+.sidebar-content {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+}
+
+/* ✅ FIX: mobile-link takes full width of sidebar */
 .mobile-link {
     background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    color: white;
-    padding: 15px;
-    border-radius: 15px;
-    text-align: center;
-    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    padding: 15px 20px;
+    border-radius: 12px;
+    text-align: left;
     font-size: 16px;
+    font-weight: 500;
     cursor: pointer;
-    transition: 0.3s;
+    width: 100%;
+    text-decoration: none;
+    display: block;
+    transition: background 0.3s ease, border-color 0.3s ease;
+    box-sizing: border-box;
+}
+
+.mobile-link:hover {
+    background: rgba(0, 181, 226, 0.2);
+    border-color: #00B5E2;
+    color: #ffffff;
+}
+
+/* Background Overlay */
+.menu-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 9998;
 }
 
 /* ========================================
-   RESPONSIVE BREAKPOINT
+   RESPONSIVE LOGIC
 ======================================== */
 @media (max-width: 768px) {
     .navbar {
         height: 70px;
-        padding: 0 20px;
+        background: rgba(10, 10, 15, 0.95);
+        padding-bottom: 5px;
     }
 
-    .navbar-right {
+    .navbar-container {
+        padding: 32px 10px;
+    }
+
+    /* Hide desktop nav */
+    .navbar-desktop {
         display: none;
     }
 
+    /* Show hamburger */
     .hamburger {
         display: flex;
+        order: 1;
     }
 
-    .mobile-menu {
-        top: 70px;
+    .navbar-logo-wrapper {
+        order: 2;
+    }
+
+    /* Scale down logo */
+    .navbar-logo {
+        filter: none;
+        box-shadow: none;
+        height: 28px;      
+        width: auto;        
+        /* max-width: 140px;    */
+        object-fit: contain; 
+        image-rendering: -webkit-optimize-contrast; /* ✅ sharpens on mobile screens */
     }
 }

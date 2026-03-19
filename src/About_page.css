@@ -192,18 +192,37 @@
 @media (max-width:768px){
 
     .horizontal-timeline-track{
-
-        gap: 60px;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
         padding: 0 40px;
     }
 
+    .h-timeline-item {
+        gap: 0;
+    }
+
     .v-node{
-        width:120px;
-        height:120px;
+        width: 120px;
+        height: 120px;
     }
 
+    /* Hide horizontal line entirely on mobile */
     .h-line-path{
-        width:60px;
+        display: none;
     }
 
+    /* Add a vertical connector below each node (except the last) */
+    .h-timeline-item:not(:last-child)::after {
+        content: '';
+        display: block;
+        width: 2px;
+        height: 50px;
+        background: #00B5E2;
+        margin: 0 auto;
+    }
+
+    .v-label {
+        margin-bottom: 8px;
+    }
 }
