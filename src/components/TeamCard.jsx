@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../TeamSection.css';
 
-const TeamCard = ({ name, position, linkedin, github }) => {
-    // Generate initials from name
+const TeamCard = ({ name, position, linkedin, github, image }) => {
+    const [imgError, setImgError] = useState(false);
+
+    // Fallback initials if image fails to load
     const initials = name
         .split(' ')
         .map(word => word[0])
@@ -12,11 +14,21 @@ const TeamCard = ({ name, position, linkedin, github }) => {
 
     return (
         <div className="team-card">
-            {/* Rectangular Initial Box */}
             <div className="initial-container">
-                <div className="initial-rect">{initials}</div>
 
-                {/* Social Icons Overlay */}
+                {/* Show photo if available and not broken, else show initials */}
+                {image && !imgError ? (
+                    <img
+                        src={image}
+                        alt={name}
+                        className="profile-img"
+                        onError={() => setImgError(true)}
+                    />
+                ) : (
+                    <div className="initial-rect">{initials}</div>
+                )}
+
+                {/* Social Icons Overlay — works on both photo and initials */}
                 <div className="social-overlay">
                     <a
                         href={linkedin}
@@ -29,7 +41,6 @@ const TeamCard = ({ name, position, linkedin, github }) => {
                             <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
                         </svg>
                     </a>
-
                     <a
                         href={github}
                         target="_blank"
@@ -44,7 +55,6 @@ const TeamCard = ({ name, position, linkedin, github }) => {
                 </div>
             </div>
 
-            {/* Name & Position */}
             <h3 className="member-name">{name}</h3>
             <p className="member-position">{position}</p>
         </div>

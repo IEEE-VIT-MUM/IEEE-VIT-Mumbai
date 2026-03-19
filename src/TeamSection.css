@@ -245,3 +245,13 @@
   transition: 0.3s ease;
 }
 
+
+/* Photo inside card — matches the initials box shape */
+.initial-container .profile-img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  object-position: center top; /* shows face, not waist */
+  border-radius: 10px;
+  display: block;
+}
