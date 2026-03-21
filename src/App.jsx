@@ -10,7 +10,7 @@ import Home from './components/Home.jsx';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/IEEE-VIT-Mumbai/">
       <ScrollToTop />
       <Navbar />
 
