@@ -20,13 +20,13 @@ export const excomData = [
         linkedin: "https://www.linkedin.com/in/shubhan-telang-29b089308/",
         github: "https://github.com/ShubhanTelang"
     },
-    // {
-    //     name: "Yash Sawant",
-    //     position: "Internal Permission Officer",
-    //     image: "/Team/yash_sawant.jpg",
-    //     linkedin: "#",
-    //     github: "#"
-    // },
+    {
+        name: "Yash Sawant",
+        position: "Internal Permission Officer",
+        image: "Team/yash_sawant.jpg",
+        linkedin: "#",
+        github: "#"
+    },
     {
         name: "Siddhi Lad",
         position: "Treasurer",
@@ -107,11 +107,11 @@ export const headsData = [
         linkedin: "https://www.linkedin.com/in/yashraj-patil-vit",
         github: "https://github.com/Yashraj552"
     },
-    // {
-    //     name: "Om Gawde",
-    //     position: "Membership Head",
-    //     image: "/Team/om_gawde.jpg",
-    //     linkedin: "https://www.linkedin.com/in/om-gawde-64a774332?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
-    //     github: "https://github.com/OmGawde"
-    // }
+    {
+        name: "Om Gawde",
+        position: "Membership Head",
+        image: "Team/om_gawde.jpg",
+        linkedin: "https://www.linkedin.com/in/om-gawde-64a774332?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+        github: "https://github.com/OmGawde"
+    }
 ];
