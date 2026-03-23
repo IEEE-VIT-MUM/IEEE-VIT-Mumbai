@@ -59,13 +59,6 @@ export const headsData = [
         github: "https://github.com/Meet3724"
     },
     {
-        name: "Manali Kulkarni",
-        position: "Creative Head",
-        image: "Team/Manali_Kulkarni.jpg",
-        linkedin: "https://www.linkedin.com/in/manali-kulkarni-04701a286?utm_source=share_via&utm_content=profile&utm_medium=member_android",
-        github: "https://github.com/ManaliK-123"
-    },
-    {
         name: "Tanvi Yerram",
         position: "Event Head",
         image: "Team/Tanvi_Yerram.jpg",
@@ -78,6 +71,13 @@ export const headsData = [
         image: "Team/Maitry_Mohite.JPG",
         linkedin: "https://www.linkedin.com/in/maitry-mohite",
         github: "https://github.com/maitry-mohite"
+    },
+    {
+        name: "Manali Kulkarni",
+        position: "Creative Head",
+        image: "Team/Manali_Kulkarni.jpg",
+        linkedin: "https://www.linkedin.com/in/manali-kulkarni-04701a286?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+        github: "https://github.com/ManaliK-123"
     },
     {
         name: "Shubham Ralkar",
