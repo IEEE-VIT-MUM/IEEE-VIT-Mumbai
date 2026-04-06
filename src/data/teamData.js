@@ -23,8 +23,8 @@ export const excomData = [
     {
         name: "Yash Sawant",
         position: "Internal Permission Officer",
-        image: "Team/yash_sawant.jpg",
-        linkedin: "#",
+        image: "Team/Yash_Sawant.jpg",
+        linkedin: "https://www.linkedin.com/in/yash-sawant22",
         github: "#"
     },
     {
