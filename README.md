@@ -1,7 +1,5 @@
 # IEEE VIT Mumbai – Official Website
 
-![IEEE Banner](https://img.shields.io/badge/IEEE-VIT%20Mumbai-blue?style=for-the-badge)
-
 ---
 
 ## 🌐 About the Project
@@ -29,11 +27,7 @@ The platform serves as a central hub for students and tech enthusiasts to:
 
 ## 🎯 Mission
 
-IEEE’s core mission is to:
-
 > Foster technological innovation and excellence for the benefit of humanity.
-
-We aim to empower engineers, scientists, and students by providing a collaborative platform to innovate and contribute to society.
 
 ---
 
@@ -73,16 +67,43 @@ We actively organize:
 * 🧠 Project highlights
 * 👥 Team & community information
 * 📢 Announcements & activities
-* 💻 Modern and responsive UI
+* 💻 Modern, responsive, and fast UI
 
 ---
 
 ## 🛠️ Tech Stack
 
-*(Update this section based on your actual stack)*
+* **Frontend:** React
+* **Build Tool:** Vite
+* **Linting:** ESLint
+* **Deployment:** Github pages
 
-* Frontend: HTML, CSS, JavaScript,React
-* Deployment: Vercel
+---
+
+## ⚡ React + Vite Setup
+
+This project uses **React with Vite** to ensure **fast development and optimized performance**.
+
+### ✨ Why Vite?
+
+* ⚡ Instant server start
+* 🔥 Hot Module Replacement (HMR) for real-time updates
+* 🚀 Faster builds compared to traditional bundlers
+
+### 🔌 Plugins Used
+
+* `@vitejs/plugin-react` → Uses **Babel** for Fast Refresh
+* `@vitejs/plugin-react-swc` → Uses **SWC** for faster compilation
+
+### 🧹 ESLint Configuration
+
+The project includes ESLint rules for maintaining clean and consistent code.
+
+For production-grade applications:
+
+* Consider using **TypeScript**
+* Enable **type-aware linting** with `typescript-eslint`
+* Follow strict linting rules for scalability
 
 ---
 
@@ -110,7 +131,7 @@ npm run dev
 ### 4️⃣ Open in Browser
 
 ```
-http://localhost:3000
+http://localhost:5173
 ```
 
 ---
@@ -153,13 +174,10 @@ We welcome contributions from the community!
 ## 📄 License
 
 This project is licensed under the **MIT License**.
-Feel free to use and modify with proper attribution.
 
 ---
 
 ## 🙌 Acknowledgements
-
-Special thanks to:
 
 * IEEE VIT Mumbai Team
 * Contributors and Developers
@@ -168,8 +186,6 @@ Special thanks to:
 ---
 
 ## 📬 Contact
-
-For queries, collaborations, or contributions:
 
 📧 Reach out via IEEE VIT Mumbai official channels
 🌐 Stay connected through our website and social platforms
