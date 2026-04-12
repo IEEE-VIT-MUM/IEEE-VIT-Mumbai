@@ -110,7 +110,7 @@ export const headsData = [
     {
         name: "Om Gawde",
         position: "Membership Head",
-        image: "Team/om_gawde.jpg",
+        image: "Team/Om_Gawde.jpeg",
         linkedin: "https://www.linkedin.com/in/om-gawde-64a774332?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
         github: "https://github.com/OmGawde"
     }
