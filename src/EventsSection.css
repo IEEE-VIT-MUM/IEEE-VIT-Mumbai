@@ -305,6 +305,59 @@
   box-shadow: 0 10px 26px rgba(15, 23, 42, 0.7);
 }
 
+/* Add this to the end of src/EventsSection.css */
+
+/* Tooltip container properties - ensures content stays within the image area */
+.ev-img-wrap {
+  position: relative; /* Essential for absolute positioning of tooltip */
+}
+
+.ev-description-tooltip {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(
+    to top,
+    rgba(15, 23, 42, 0.98) 0%,
+    rgba(15, 23, 42, 0.85) 100%
+  );
+  color: #e5e7eb;
+  padding: 0.8rem 1rem;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform: translateY(10px); /* Slight slide up effect */
+  border-top: 1px solid rgba(0, 181, 226, 0.4);
+  z-index: 2;
+  
+  /* Text Clamping for 1-2 lines */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/* When the user hovers over the image wrapper, show the tooltip */
+.ev-img-wrap:hover .ev-description-tooltip {
+  opacity: 1;
+  transform: translateY(0); /* Slides it into its final position */
+  pointer-events: auto;     /* Optional: allows clicking links inside if needed */
+}
+
+/* Show description when card is hovered */
+.ev-card:hover .ev-description-tooltip {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Ensure the register/info overlay stays above the description */
+.ev-overlay {
+  z-index: 3;
+}
+
 /* MOBILE – NO OVERLAP, KEEP HOVER BEHAVIOUR */
 @media (max-width: 900px) {
   .ev-scroll-btn {

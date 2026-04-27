@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import "../EventsSection.css";
 
+// Starting at Line 4 of src/components/EventsSection.jsx
 const eventsData = [
   {
     id: 1,
@@ -11,6 +12,7 @@ const eventsData = [
     poster: "events/IEEE_Fest_Calender.jpeg",
     registerLink: "#",
     infoLink: "#",
+    description: "Mark your calendars for a year of innovation! Unveiling our complete schedule of technical and flagship fests.",
   },
   {
     id: 2,
@@ -21,6 +23,7 @@ const eventsData = [
     poster: "events/Guest_Seminar.jpeg",
     registerLink: "#",
     infoLink: "#",
+    description: "Gain industry insights from leading professionals in this exclusive seminar session.",
   },
   {
     id: 3,
@@ -31,6 +34,7 @@ const eventsData = [
     poster: "events/Escape_The_Laboratory.png",
     registerLink: "#",
     infoLink: "#",
+    description: "A high-stakes puzzle adventure! Work with your team to solve technical riddles and escape the lab.",
   },
   {
     id: 4,
@@ -41,6 +45,7 @@ const eventsData = [
     poster: "events/Codeager.jpeg",
     registerLink: "#",
     infoLink: "#",
+    description: "Showcase your coding prowess in this competitive programming challenge for all skill levels.",
   },
   {
     id: 5,
@@ -51,6 +56,7 @@ const eventsData = [
     poster: "events/Vision2Venture.jpeg",
     registerLink: "#",
     infoLink: "#",
+    description: "The ultimate platform for aspiring entrepreneurs to pitch their innovative business ideas.",
   },
   {
     id: 6,
@@ -61,6 +67,7 @@ const eventsData = [
     poster: "events/Virtual_Vortex.png",
     registerLink: "#",
     infoLink: "#",
+    description: "Dive into the world of virtual reality and gaming in this high-energy interactive experience.",
   },
   {
     id: 7,
@@ -71,6 +78,7 @@ const eventsData = [
     poster: "events/PCB_Desiging_Workshop.jpg",
     registerLink: "#",
     infoLink: "#",
+    description: "Hands-on session where you'll learn to design, route, and manufacture your own circuit boards.",
   },
   {
     id: 8,
@@ -81,6 +89,7 @@ const eventsData = [
     poster: "events/IEEE_Day_Celebration.jpg",
     registerLink: "#",
     infoLink: "#",
+    description: "Celebrating technical excellence! Join us for a day of networking, cake-cutting, and fun activities.",
   },
   {
     id: 9,
@@ -91,6 +100,7 @@ const eventsData = [
     poster: "events/Guest_Speaker.png",
     registerLink: "#",
     infoLink: "#",
+    description: "Join us virtually to hear from global experts about the future of engineering and technology.",
   },
   {
     id: 10,
@@ -101,6 +111,7 @@ const eventsData = [
     poster: "events/Agent_Mode_On.jpeg",
     registerLink: "#",
     infoLink: "#",
+    description: "Master the power of AI agents and autonomous systems in this advanced hands-on workshop.",
   },
   {
     id: 11,
@@ -111,6 +122,7 @@ const eventsData = [
     poster: "events/IdeaSphere.png",
     registerLink: "#",
     infoLink: "#",
+    description: "Bridge the gap between imagination and reality by pitching your innovative technical solutions.",
   },
   {
     id: 12,
@@ -121,17 +133,8 @@ const eventsData = [
     poster: "events/Core_Interviews.png",
     registerLink: "#",
     infoLink: "#",
-  },
-  // {
-  //   id: 13,
-  //   title: "Hardware Hackathon",
-  //   date: "2026-03-14",
-  //   venue: "VIT Campus",
-  //   tag: "Hybrid 6+2 Hardware Hackathon",
-  //   poster: "/events/Hardware_Hackathon.jpg",
-  //   registerLink: "#",
-  //   infoLink: "#",
-  // },
+    description: "Take the next step in your leadership journey. Join the core committee of IEEE VIT Mumbai.",
+  }
 ];
 
 const FILTERS = ["Upcoming", "Past", "All"];
@@ -156,22 +159,29 @@ function formatDate(dateStr) {
   return `${day}-${month}-${year}`;
 }
 
+// Replace the entire EventCard function (Lines 158-204) with this:
 function EventCard({ event }) {
   const status = classifyEvent(event.date);
   const isPast = status === "Past";
 
   return (
     <article className={`ev-card ${isPast ? "ev-card-past" : ""}`}>
-      {/* top meta like NISB */}
+      {/* top meta */}
       <header className="ev-card-header">
         <p className="ev-tag">{event.tag}</p>
         <h3 className="ev-title">{event.title}</h3>
         <p className="ev-date">{formatDate(event.date)}</p>
       </header>
 
-      {/* poster */}
+      {/* poster with tooltip */}
       <div className="ev-img-wrap">
         <img src={event.poster} alt={event.title} className="ev-img" />
+        {/* Added description tooltip */}
+        {event.description && (
+          <div className="ev-description-tooltip">
+            {event.description}
+          </div>
+        )}
       </div>
 
       {/* bottom meta */}
@@ -179,7 +189,7 @@ function EventCard({ event }) {
         <p className="ev-venue">{event.venue}</p>
       </footer>
 
-      {/* Hover overlay with different buttons for Upcoming vs Past */}
+      {/* Hover overlay */}
       <div className="ev-overlay">
         {isPast ? (
           <>
