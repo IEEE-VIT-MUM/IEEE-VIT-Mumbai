@@ -159,57 +159,70 @@ function formatDate(dateStr) {
   return `${day}-${month}-${year}`;
 }
 
-// Replace the entire EventCard function (Lines 158-204) with this:
+// MODIFIED EventCard — replaces the existing EventCard function entirely
 function EventCard({ event }) {
   const status = classifyEvent(event.date);
   const isPast = status === "Past";
+  const [isActive, setIsActive] = useState(false); // mobile tap toggle
 
   return (
-    <article className={`ev-card ${isPast ? "ev-card-past" : ""}`}>
-      {/* top meta */}
-      <header className="ev-card-header">
-        <p className="ev-tag">{event.tag}</p>
-        <h3 className="ev-title">{event.title}</h3>
-        <p className="ev-date">{formatDate(event.date)}</p>
-      </header>
-
-      {/* poster with tooltip */}
+    <article
+      className={`ev-card ${isPast ? "ev-card-past" : ""} ${isActive ? "active" : ""}`}
+      onClick={() => setIsActive(true)}
+      onMouseLeave={() => setIsActive(false)}
+    >
+      {/* ── DEFAULT STATE: poster only ── */}
       <div className="ev-img-wrap">
-        <img src={event.poster} alt={event.title} className="ev-img" />
-        {/* Added description tooltip */}
-        {event.description && (
-          <div className="ev-description-tooltip">
-            {event.description}
-          </div>
-        )}
+        <img
+          src={event.poster}
+          alt={event.title}
+          className="ev-img"
+          loading="lazy"
+        />
       </div>
 
-      {/* bottom meta */}
-      <footer className="ev-card-footer">
-        <p className="ev-venue">{event.venue}</p>
-      </footer>
+      {/* ── DEFAULT STATE: minimal title strip ── */}
+      <div className="ev-default-title">
+        <h3 className="ev-title">{event.title}</h3>
+      </div>
 
-      {/* Hover overlay */}
-      <div className="ev-overlay">
-        {isPast ? (
-          <>
-            <button className="ev-btn disabled" disabled>
-              Event Completed
-            </button>
-            <a href={event.infoLink} className="ev-btn info">
-              View Details
-            </a>
-          </>
-        ) : (
-          <>
-            <a href={event.registerLink} className="ev-btn register">
-              Register
-            </a>
-            <a href={event.infoLink} className="ev-btn info">
-              More Info
-            </a>
-          </>
-        )}
+      {/* ── HOVER/TAP OVERLAY: all detail lives here ──
+           Tapping the overlay background (mobile) collapses it.
+           Clicks on inner content are stopped from bubbling up. */}
+      <div className="ev-overlay" onClick={() => setIsActive(false)}>
+
+        <div className="ev-overlay-body" onClick={(e) => e.stopPropagation()}>
+          <p className="ev-tag">{event.tag}</p>
+          <h3 className="ev-overlay-title">{event.title}</h3>
+          <p className="ev-date">{formatDate(event.date)}</p>
+          <p className="ev-venue">📍 {event.venue}</p>
+          {event.description && (
+            <p className="ev-description">{event.description}</p>
+          )}
+        </div>
+
+        <div className="ev-overlay-actions" onClick={(e) => e.stopPropagation()}>
+          {isPast ? (
+            <>
+              <button className="ev-btn disabled" disabled>
+                Completed
+              </button>
+              <a href={event.infoLink} className="ev-btn info">
+                View Details
+              </a>
+            </>
+          ) : (
+            <>
+              <a href={event.registerLink} className="ev-btn register">
+                Register
+              </a>
+              <a href={event.infoLink} className="ev-btn info">
+                More Info
+              </a>
+            </>
+          )}
+        </div>
+
       </div>
     </article>
   );
