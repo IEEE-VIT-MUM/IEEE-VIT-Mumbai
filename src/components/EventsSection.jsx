@@ -134,7 +134,31 @@ const eventsData = [
     registerLink: "#",
     infoLink: "#",
     description: "Take the next step in your leadership journey. Join the core committee of IEEE VIT Mumbai.",
-  }
+  },
+  {
+  id: 13,
+  title: "Drone Assembly & Flight Simulation Workshop",
+  date: "2026-03-17",
+  venue: "M201",
+  tag: "Workshop",
+  poster: "events/Drone_Assembly_Workshop.png",
+  registerLink: "#",
+  infoLink: "#",
+  description:
+    "Learn drone fundamentals, UAV components, hands-on drone assembly, flight simulation training, and live drone flight demonstration.",
+},
+{
+  id: 14,
+  title: "BID STRIKE 2026",
+  date: "2026-03-23",
+  venue: "M501 Seminar Hall",
+  tag: "Competition",
+  poster: "events/BIDSTRIKE_2026.png",
+  registerLink: "#",
+  infoLink: "#",
+  description:
+    "An IPL auction simulation where participants step into the shoes of franchise owners, build strategy, manage budgets, and compete live for a prize pool of Rs. 3000.",
+}
 ];
 
 const FILTERS = ["Upcoming", "Past", "All"];
@@ -207,9 +231,6 @@ function EventCard({ event }) {
               <button className="ev-btn disabled" disabled>
                 Completed
               </button>
-              <a href={event.infoLink} className="ev-btn info">
-                View Details
-              </a>
             </>
           ) : (
             <>
