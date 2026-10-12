@@ -7,7 +7,7 @@ export default function Hero() {
     const heroRef = useRef(null);
     const vantaRef = useRef(null);
 
-    const fullText = "IEEE VIT-Mumbai Student Branch";
+    const fullText = "Good Bye Suckers!!!!!";
     const breakIndex = "IEEE VIT-Mumbai".length;
     const [text, setText] = useState("");
     const [index, setIndex] = useState(0);
