@@ -179,9 +179,9 @@ This project is licensed under the **MIT License**.
 
 ## 🙌 Acknowledgements
 
-* IEEE VIT Mumbai Team
+* IEEE Student Branch VIT Mumbai Team
 * Contributors and Developers
-* IEEE Bombay Section
+* IEEE Mumbai Section Section
 
 ---
 
